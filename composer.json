@@ -1,0 +1,23 @@
+{
+    "name": "hielsnoppe/phpcss",
+    "type": "library",
+    "description": "",
+    "keywords": [ "css" ],
+    "homepage": "https://github.com/hielsnoppe/phpcss",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Niels Hoppe",
+            "homepage": "http://www.nielshoppe.de",
+            "role": "Lead Developer"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "NielsHoppe\\PHPCSS\\" : "lib/"
+        }
+    },
+    "support": {
+        "source": "https://github.com/hielsnoppe/phpcss"
+    }
+}
