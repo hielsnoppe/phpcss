@@ -37,6 +37,11 @@ class RGBColor {
     }
 }
 
+/**
+ * http://stackoverflow.com/a/20440417/948404
+ * http://stackoverflow.com/questions/2353211/hsl-to-rgb-color-conversion
+ */
+
 class HSLColor {
 
     private $hue;
@@ -113,7 +118,7 @@ class ColorValue implements Value {
         $patterns = array(
             'hex' => '/^#(?P<red>[a-zA-Z0-9])(?P<green>[a-zA-Z0-9])(?P<blue>[a-zA-Z0-9])$/',
             'hexhex' => '/^#(?P<red>[a-zA-Z0-9]{2})(?P<green>[a-zA-Z0-9]{2})(?P<blue>[a-zA-Z0-9]{2})$/',
-            'rgb' => '/^rgb\((?P<red>[0-9]{1,3}),(?P<green>[0-9]{1,3}),(?P<blue>[0-9]{1,3})\)$/',
+            'rgb' => '/^rgb\(\s*(?P<red>[0-9]{1,3})\s*,\s*(?P<green>[0-9]{1,3})\s*,\s*(?P<blue>[0-9]{1,3})\s*\)$/',
             /*
             'rgba' => '/^rgba\((?P<red>[0-9]{1,3}),(?P<green>[0-9]{1,3}),(?P<blue>),(?P<alpha>)\)$/',
             'hsl' => '/^hsl\((?P<hue>),(?P<saturation>),(?P<lightness>)\)$/',
