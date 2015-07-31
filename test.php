@@ -6,7 +6,7 @@ require_once('lib/Declaration.php');
 
 use \NielsHoppe\PHPCSS\Ruleset as Ruleset;
 
-$rs = new Ruleset('foo');
+$rs = new Ruleset();
 $rs->addDeclaration('margin-top', 0);
 $rs->addDeclaration('background-color', '#ff0000');
 echo($rs->toString());

@@ -7,7 +7,7 @@ class Ruleset {
     private $selector;
     private $declarations;
 
-    public function __construct ($selector) {
+    public function __construct ($selector = null) {
 
         $this->selector = $selector;
         $this->declarations = array();
