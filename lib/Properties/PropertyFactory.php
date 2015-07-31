@@ -144,32 +144,6 @@ class PropertyFactory {
 
     public static createProperty ($ident) {
 
-        return new FooProperty();
-    }
-}
-
-interface Property {
-
-    public function acceptsValue ($value) {
-
-    }
-}
-
-class WidthProperty implements Property {
-
-    public function acceptsValue ($value) {
-
-        if ($value instanceof "LengthValue") {
-
-        }
-        else if ($value instanceof "PercentageValue") {
-
-        }
-        else if ($value == 'auto' || $value == 'inherit') {
-
-        }
-        else {
-            return false;
-        }
+        return new WidthProperty();
     }
 }

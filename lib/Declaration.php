@@ -14,6 +14,9 @@ class Declaration {
     }
 
     public function toString () {
-        return sprintf('%s: %s', $this->property, $this->value);
+
+        $value = is_object($this->value) ? $this->value->toString() : $this->value;
+
+        return sprintf('%s: %s', $this->property, $value);
     }
 }
