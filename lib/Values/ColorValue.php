@@ -3,7 +3,7 @@
 namespace NielsHoppe\PHPCSS\Values;
 
 /**
- * Does not support percent values
+ * TODO: Implement percent values
  */
 
 class RGBColor {
@@ -82,23 +82,6 @@ class ColorValue implements Value {
     // Illegal in PHP 5.5.9
     // Available in PHP 5.6
     const KEYWORD_HEX_VALUE = array(
-        'aqua' => '#00ffff',
-        'black' => '#000000',
-        'blue' => '#0000ff',
-        'fuchsia' => '#ff00ff',
-        'gray' => '#808080',
-        'green' => '#008000',
-        'lime' => '#00ff00',
-        'maroon' => '#800000',
-        'navy' => '#000080',
-        'olive' => '#808000',
-        'orange' => '#ffA500',
-        'purple' => '#800080',
-        'red' => '#ff0000',
-        'silver' => '#c0c0c0',
-        'teal' => '#008080',
-        'white' => '#ffffff',
-        'yellow' => '#ffff00'
     );
     */
 
@@ -111,16 +94,18 @@ class ColorValue implements Value {
             'hex' => '[a-zA-Z0-9]',
             'hexhex' => '[a-zA-Z0-9]{2}',
             'int' => '[0-9]{1,3}',
-            'perc' => '[0-9]{1,3}%'
+            'perc' => '[0-9]{1,3}%',
+            'alpha' => '[01]?\.?[0-9]+'
         );
         */
 
         $patterns = array(
-            'hex' => '/^#(?P<red>[a-zA-Z0-9])(?P<green>[a-zA-Z0-9])(?P<blue>[a-zA-Z0-9])$/',
-            'hexhex' => '/^#(?P<red>[a-zA-Z0-9]{2})(?P<green>[a-zA-Z0-9]{2})(?P<blue>[a-zA-Z0-9]{2})$/',
+            'keyword' => '/^(?P<keyword>[a-zA-Z]+)$/',
+            'hex' => '/^#?(?P<red>[a-zA-Z0-9])(?P<green>[a-zA-Z0-9])(?P<blue>[a-zA-Z0-9])$/',
+            'hexhex' => '/^#?(?P<red>[a-zA-Z0-9]{2})(?P<green>[a-zA-Z0-9]{2})(?P<blue>[a-zA-Z0-9]{2})$/',
             'rgb' => '/^rgb\(\s*(?P<red>[0-9]{1,3})\s*,\s*(?P<green>[0-9]{1,3})\s*,\s*(?P<blue>[0-9]{1,3})\s*\)$/',
             /*
-            'rgba' => '/^rgba\((?P<red>[0-9]{1,3}),(?P<green>[0-9]{1,3}),(?P<blue>),(?P<alpha>)\)$/',
+            'rgba' => '/^rgb\(\s*(?P<red>[0-9]{1,3})\s*,\s*(?P<green>[0-9]{1,3})\s*,\s*(?P<blue>[0-9]{1,3})\s*\,\s*(?P<alpha>[0-1]\.[0-9]{1,2})\s*\)$/',
             'hsl' => '/^hsl\((?P<hue>),(?P<saturation>),(?P<lightness>)\)$/',
             'hsla' => '/^hsla\((?P<hue>),(?P<saturation>),(?P<lightness>),(?P<alpha>)\)$/',
             */
@@ -136,6 +121,59 @@ class ColorValue implements Value {
             }
 
             switch ($name) {
+
+            case 'keyword':
+
+                $keyword = strtolower($matches['keyword']);
+
+                $keywords = array(
+
+                    /**
+                     * transparent
+                     * @see http://www.w3.org/wiki/CSS3/Color/transparent
+                     *
+                     * FIXME: Do not replace with RGBa value because this breaks with OUTPUT_MODE_HEX
+                     */
+
+                    'transparent' => 'rgba(0,0,0,0)',
+
+                    /**
+                     * Basic color keywords
+                     * @see http://www.w3.org/wiki/CSS3/Color/Basic_color_keywords
+                     */
+
+                    'aqua' => '#00ffff',
+                    'black' => '#000000',
+                    'blue' => '#0000ff',
+                    'fuchsia' => '#ff00ff',
+                    'gray' => '#808080',
+                    'green' => '#008000',
+                    'lime' => '#00ff00',
+                    'maroon' => '#800000',
+                    'navy' => '#000080',
+                    'olive' => '#808000',
+                    'orange' => '#ffA500',
+                    'purple' => '#800080',
+                    'red' => '#ff0000',
+                    'silver' => '#c0c0c0',
+                    'teal' => '#008080',
+                    'white' => '#ffffff',
+                    'yellow' => '#ffff00'
+
+                    /**
+                     * Extended color keywords
+                     * @see http://www.w3.org/wiki/CSS3/Color/Extended_color_keywords
+                     *
+                     * TODO: add extended color keywords
+                     */
+                );
+
+                if (in_array($keyword, $keywords)) {
+
+                    $value = $keywords[$keyword];
+                }
+
+                break 1;
 
             case 'hex':
 
@@ -163,7 +201,12 @@ class ColorValue implements Value {
 
             case 'rgba':
 
-                $this->color = new RGBColor($matches['red'], $matches['green'], $matches['blue'], $matches['alpha']);
+                $this->color = new RGBColor(
+                    $matches['red'],
+                    $matches['green'],
+                    $matches['blue'],
+                    $matches['alpha']
+                );
 
                 break 2;
 
