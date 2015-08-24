@@ -158,7 +158,7 @@ class ColorValue implements Value {
                     'silver' => '#c0c0c0',
                     'teal' => '#008080',
                     'white' => '#ffffff',
-                    'yellow' => '#ffff00'
+                    'yellow' => '#ffff00',
 
                     /**
                      * Extended color keywords
