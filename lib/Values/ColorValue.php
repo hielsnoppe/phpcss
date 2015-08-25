@@ -30,7 +30,7 @@ class RGBColor {
 
         if ($this->alpha) {
 
-            return sprintf('rgba(%u, %u, %u, %u)', $this->red, $this->green, $this->blue, $this->alpha);
+            return sprintf('rgba(%u, %u, %u, %.2F)', $this->red, $this->green, $this->blue, $this->alpha);
         }
 
         return sprintf('rgb(%u, %u, %u)', $this->red, $this->green, $this->blue);
@@ -104,8 +104,8 @@ class ColorValue implements Value {
             'hex' => '/^#?(?P<red>[a-zA-Z0-9])(?P<green>[a-zA-Z0-9])(?P<blue>[a-zA-Z0-9])$/',
             'hexhex' => '/^#?(?P<red>[a-zA-Z0-9]{2})(?P<green>[a-zA-Z0-9]{2})(?P<blue>[a-zA-Z0-9]{2})$/',
             'rgb' => '/^rgb\(\s*(?P<red>[0-9]{1,3})\s*,\s*(?P<green>[0-9]{1,3})\s*,\s*(?P<blue>[0-9]{1,3})\s*\)$/',
-            /*
             'rgba' => '/^rgb\(\s*(?P<red>[0-9]{1,3})\s*,\s*(?P<green>[0-9]{1,3})\s*,\s*(?P<blue>[0-9]{1,3})\s*\,\s*(?P<alpha>[0-1]\.[0-9]{1,2})\s*\)$/',
+            /*
             'hsl' => '/^hsl\((?P<hue>),(?P<saturation>),(?P<lightness>)\)$/',
             'hsla' => '/^hsla\((?P<hue>),(?P<saturation>),(?P<lightness>),(?P<alpha>)\)$/',
             */
@@ -372,7 +372,7 @@ class ColorValue implements Value {
         }
     }
 
-    public function toString ($outputMode = self::OUTPUT_MODE_HEX) {
+    public function toString ($outputMode = self::OUTPUT_MODE_RGB) {
 
         switch ($outputMode) {
 

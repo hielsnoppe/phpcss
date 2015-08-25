@@ -18,8 +18,8 @@ $html = new Ruleset('html');
 $html->addDeclaration('color', new ColorValue('#00f'));
 
 $body = new Ruleset('body');
-$body->addDeclaration('background-color', new ColorValue('rgb(128, 255 , 0)'));
-$body->addDeclaration('padding-top', 10);
+$body->addDeclaration('background-color', new ColorValue('rgb(128, 255 , 0, 0.5)'));
+$body->addDeclaration('padding-top', '10px');
 
 $style->addStatement($html);
 $style->addStatement($body);
