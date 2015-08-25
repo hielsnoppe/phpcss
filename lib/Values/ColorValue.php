@@ -18,16 +18,17 @@ class RGBColor {
         $this->red = $red;
         $this->green = $green;
         $this->blue = $blue;
-        $this->alpha = $alpha;
+        $this->alpha = floatval($alpha);
     }
 
+    // allow transparent keyword?
     public function toHexString () {
 
-        if ($this->alpha && $this->alpha === 0) {
+        if ($this->alpha === 0.0) {
 
             return 'transparent';
         }
-        
+
         return sprintf('#%02x%02x%02x', $this->red, $this->green, $this->blue);
     }
 
@@ -315,9 +316,9 @@ class ColorValue implements Value {
 
                 $keyword = strtolower($matches['keyword']);
 
-                if (in_array($keyword, self::KEYWORD_HEX_VALUE)) {
+                if (in_array($keyword, self::$KEYWORD_HEX_VALUE)) {
 
-                    $value = self::KEYWORD_HEX_VALUE[$keyword];
+                    $value = self::$KEYWORD_HEX_VALUE[$keyword];
                 }
 
                 break 1;
@@ -372,7 +373,7 @@ class ColorValue implements Value {
         }
     }
 
-    public function toString ($outputMode = self::OUTPUT_MODE_RGB) {
+    public function toString ($outputMode = self::OUTPUT_MODE_HEX) {
 
         switch ($outputMode) {
 
