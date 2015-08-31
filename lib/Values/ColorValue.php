@@ -18,7 +18,15 @@ class RGBColor {
         $this->red = $red;
         $this->green = $green;
         $this->blue = $blue;
-        $this->alpha = floatval($alpha);
+
+        if (isset($alpha)) {
+
+            $this->alpha = floatval($alpha);
+        }
+        else {
+
+            $this->alpha = 1.0;
+        }
     }
 
     // allow transparent keyword?
