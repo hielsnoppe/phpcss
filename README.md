@@ -1,5 +1,7 @@
 # phpcss
 
+[![Build Status](https://travis-ci.org/hielsnoppe/phpcss.svg?branch=master)](https://travis-ci.org/hielsnoppe/phpcss)
+
 This is a PHP library to easily create valid CSS.
 
 ## Installation
