@@ -19,5 +19,11 @@
     },
     "support": {
         "source": "https://github.com/hielsnoppe/phpcss"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.8.*"
+    },
+    "scripts": {
+        "test": "phpunit --bootstrap vendor/autoload.php tests"
     }
 }

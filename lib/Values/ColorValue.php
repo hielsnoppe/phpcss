@@ -2,87 +2,8 @@
 
 namespace NielsHoppe\PHPCSS\Values;
 
-/**
- * TODO: Implement percent values
- */
-
-class RGBColor {
-
-    private $red;
-    private $green;
-    private $blue;
-    private $alpha;
-
-    public function __construct ($red, $green, $blue, $alpha = null) {
-
-        $this->red = $red;
-        $this->green = $green;
-        $this->blue = $blue;
-
-        if (isset($alpha)) {
-
-            $this->alpha = floatval($alpha);
-        }
-        else {
-
-            $this->alpha = 1.0;
-        }
-    }
-
-    // allow transparent keyword?
-    public function toHexString () {
-
-        if ($this->alpha === 0.0) {
-
-            return 'transparent';
-        }
-
-        return sprintf('#%02x%02x%02x', $this->red, $this->green, $this->blue);
-    }
-
-    public function toString () {
-
-        if ($this->alpha) {
-
-            return sprintf('rgba(%u, %u, %u, %.2F)', $this->red, $this->green, $this->blue, $this->alpha);
-        }
-
-        return sprintf('rgb(%u, %u, %u)', $this->red, $this->green, $this->blue);
-    }
-}
-
-/**
- * http://stackoverflow.com/a/20440417/948404
- * http://stackoverflow.com/questions/2353211/hsl-to-rgb-color-conversion
- */
-
-class HSLColor {
-
-    private $hue;
-    private $saturation;
-    private $lightness;
-    private $alpha;
-
-    public function __construct ($hue, $saturation, $lightness, $alpha = null) {
-
-        $this->hue = $hue;
-        $this->saturation = $saturation;
-        $this->lightness = $lightness;
-        $this->alpha = $alpha;
-    }
-
-    public function toString () {
-
-        // Wrong!
-
-        if ($this->alpha) {
-
-            return sprintf('hsla(%u, %u, %u, %u)', $this->hue, $this->saturation, $this->lightness, $this->alpha);
-        }
-
-        return sprintf('hsl(%u, %u, %u)', $this->hue, $this->saturation, $this->lightness);
-    }
-}
+use NielsHoppe\PHPCSS\Color\RGBColor as RGBColor;
+use NielsHoppe\PHPCSS\Color\HSLColor as HSLColor;
 
 class ColorValue implements Value {
 

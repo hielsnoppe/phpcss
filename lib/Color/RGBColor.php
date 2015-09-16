@@ -1,6 +1,8 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Values;
+namespace NielsHoppe\PHPCSS\Color;
+
+use NielsHoppe\PHPCSS\Util as Util;
 
 /**
  * TODO: Implement percent values
@@ -15,10 +17,18 @@ class RGBColor {
 
     public function __construct ($red, $green, $blue, $alpha = null) {
 
-        $this->red = $red;
-        $this->green = $green;
-        $this->blue = $blue;
-        $this->alpha = $alpha;
+        $this->red = Util::clip(0, 255, intval($red));
+        $this->green = Util::clip(0, 255, intval($green));
+        $this->blue = Util::clip(0, 255, intval($blue));
+
+        if (isset($alpha)) {
+
+            $this->alpha = Util::clip(0.0, 1.0, floatval($alpha));
+        }
+        else {
+
+            $this->alpha = 1.0;
+        }
     }
 
     public function toHexString () {
@@ -28,7 +38,7 @@ class RGBColor {
 
     public function toString () {
 
-        if ($this->alpha) {
+        if ($this->alpha < 1.0) {
 
             return sprintf('rgba(%u, %u, %u, %.2F)', $this->red, $this->green, $this->blue, $this->alpha);
         }
