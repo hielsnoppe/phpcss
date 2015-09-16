@@ -1,8 +1,8 @@
 <?php
 
-namespace NielsHoppe\PHPCSS;
+namespace NielsHoppe\PHPCSS\Statements;
 
-class Ruleset {
+class Ruleset extends Statement {
 
     private $selector;
     private $declarations;

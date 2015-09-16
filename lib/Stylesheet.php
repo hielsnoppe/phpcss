@@ -4,11 +4,18 @@ namespace NielsHoppe\PHPCSS;
 
 class Stylesheet {
 
-    private $statements; // Ruleset or AtRule
+    private $imports;       // @import (special AtRule)
+    private $statements;    // Ruleset or AtRule (except @import)
 
     public function __construct () {
 
+        $this->imports = array();
         $this->statements = array();
+    }
+
+    public function addImport (ImportStatement $import) {
+
+        array_push($this->imports, $import);
     }
 
     public function addStatement ($statement) {
@@ -18,11 +25,16 @@ class Stylesheet {
 
     public function toString () {
 
-        $toStringFunc = function ($statement) {
+        $toStringFunc = function ($item) {
 
-            return $statement->toString();
+            return $item->toString();
         };
 
-        return implode("\n", array_map($toStringFunc, $this->statements));
+        $parts = array();
+
+        array_push($parts, implode("\n", array_map($toStringFunc, $this->imports)));
+        array_push($parts, implode("\n", array_map($toStringFunc, $this->statements)));
+
+        return implode("\n", array_filter($parts));
     }
 }

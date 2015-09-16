@@ -3,7 +3,7 @@
 namespace NielsHoppe\PHPCSS\Color;
 
 use \NielsHoppe\PHPCSS\Stylesheet as Stylesheet;
-use \NielsHoppe\PHPCSS\Ruleset as Ruleset;
+use \NielsHoppe\PHPCSS\Statements\Ruleset as Ruleset;
 use \NielsHoppe\PHPCSS\Values\ColorValue as ColorValue;
 
 class StylesheetTest extends \PHPUnit_Framework_TestCase {
