@@ -26,6 +26,8 @@ To install this library via [Composer](http://getcomposer.org) add the following
 Given that you have the Composer autoloader in place, you can use PHPCSS as follows:
 
 ```
+<?php
+
 use \NielsHoppe\PHPCSS\Stylesheet as Stylesheet;
 use \NielsHoppe\PHPCSS\Ruleset as Ruleset;
 use \NielsHoppe\PHPCSS\Values\ColorValue as ColorValue;
@@ -36,7 +38,7 @@ $html = new Ruleset('html');
 $html->addDeclaration('color', new ColorValue('#00f'));
 
 $body = new Ruleset('body');
-$body->addDeclaration('background-color', new ColorValue('rgb(128, 255 , 0, 0.5)'));
+$body->addDeclaration('background-color', new ColorValue('rgba(128, 255 , 0, 0.5)'));
 $body->addDeclaration('padding-top', '10px');
 
 $style->addStatement($html);
