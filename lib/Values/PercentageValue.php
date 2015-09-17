@@ -4,7 +4,7 @@ namespace NielsHoppe\PHPCSS;
 
 class PercentageValue implements Value {
 
-    public function toString () {
+    public function __toString () {
         return '';
     }
 }

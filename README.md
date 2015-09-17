@@ -4,6 +4,8 @@
 
 This is a PHP library to easily create valid CSS.
 
+It is planned to support converting CSS selectors to XPath aswell as writing rules from stylesheets inline.
+
 ## Installation
 
 To install this library via [Composer](http://getcomposer.org) add the following to your `composer.json` and then run `composer update`:
@@ -46,5 +48,5 @@ $body->addDeclaration('padding-top', '10px');
 $style->addStatement($html);
 $style->addStatement($body);
 
-echo($style->toString());
+echo($style->__toString());
 ```

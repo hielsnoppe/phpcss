@@ -26,7 +26,7 @@ class StylesheetTest extends \PHPUnit_Framework_TestCase {
 html { color: #0000ff }
 body { background-color: #80ff00; padding-top: 10px }
 CSS;
-        $actual = $style->toString();
+        $actual = $style->__toString();
 
         $this->assertEquals($expected, $actual);
     }

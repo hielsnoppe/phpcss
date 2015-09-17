@@ -25,7 +25,7 @@ class ImportStatementTest extends \PHPUnit_Framework_TestCase {
 
         $style = new ImportStatement($url, $media);
 
-        $this->assertEquals($css, $style->toString());
+        $this->assertEquals($css, $style->__toString());
     }
 
     public function validInputForCreation () {

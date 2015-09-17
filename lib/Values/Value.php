@@ -4,5 +4,5 @@ namespace NielsHoppe\PHPCSS\Values;
 
 interface Value {
 
-    public function toString();
+    public function __toString();
 }

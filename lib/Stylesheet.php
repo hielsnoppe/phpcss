@@ -23,17 +23,17 @@ class Stylesheet {
         array_push($this->statements, $statement);
     }
 
-    public function toString () {
+    public function __toString () {
 
-        $toStringFunc = function ($item) {
+        $__toStringFunc = function ($item) {
 
-            return $item->toString();
+            return $item->__toString();
         };
 
         $parts = array();
 
-        array_push($parts, implode("\n", array_map($toStringFunc, $this->imports)));
-        array_push($parts, implode("\n", array_map($toStringFunc, $this->statements)));
+        array_push($parts, implode("\n", array_map($__toStringFunc, $this->imports)));
+        array_push($parts, implode("\n", array_map($__toStringFunc, $this->statements)));
 
         return implode("\n", array_filter($parts));
     }

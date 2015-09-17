@@ -21,6 +21,19 @@ class SelectorTest extends \PHPUnit_Framework_TestCase {
     }
 
     /**
+     * @dataProvider selectorsFromSpecSpecificity
+     */
+
+    public function testTransformToXPath ($chain, $specificity, $xpath) {
+
+        $this->markTestIncomplete();
+
+        $selector = new Selector($chain);
+
+        $this->assertEquals($xpath, $selector->toXPath());
+    }
+
+    /**
      * @see http://www.w3.org/TR/css3-selectors/#specificity
      */
 
@@ -29,17 +42,17 @@ class SelectorTest extends \PHPUnit_Framework_TestCase {
         return array(
             array(array(
                 new UniversalSelector()
-            ), 0),
+            ), 0, ''),
 
             array(array(
                 new TypeSelector('LI')
-            ), 1),
+            ), 1, ''),
 
             array(array(
                 new TypeSelector('UL'),
                 Selector::DESCENDANT_COMBINATOR,
                 new TypeSelector('LI')
-            ), 2),
+            ), 2, ''),
 
             array(array(
                 new TypeSelector('UL'),
@@ -47,14 +60,14 @@ class SelectorTest extends \PHPUnit_Framework_TestCase {
                 new TypeSelector('OL'),
                 Selector::ADJACENT_SIBLING_COMBINATOR,
                 new TypeSelector('LI')
-            ), 3),
+            ), 3, ''),
 
             array(array(
                 new TypeSelector('H1'),
                 Selector::ADJACENT_SIBLING_COMBINATOR,
                 new UniversalSelector(),
                 new AttributeSelector('REL', 'up')
-            ), 11),
+            ), 11, ''),
 
             array(array(
                 new TypeSelector('UL'),
@@ -63,23 +76,23 @@ class SelectorTest extends \PHPUnit_Framework_TestCase {
                 Selector::DESCENDANT_COMBINATOR,
                 new TypeSelector('LI'),
                 new ClassSelector('red')
-            ), 13),
+            ), 13, ''),
 
             array(array(
                 new TypeSelector('LI'),
                 new ClassSelector('red'),
                 new ClassSelector('level')
-            ), 21),
+            ), 21, ''),
 
             array(array(
                 new IDSelector('x34y')
-            ), 100),
+            ), 100, ''),
 
             /*
             array(array(
                 new IDSelector('s12'),
                 new PseudoClassSelector()
-            ), 101)
+            ), 101, '')
             */
         );
     }

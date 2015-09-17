@@ -15,13 +15,13 @@ class ClassSelector extends SimpleSelector {
         $this->class = $class;
     }
 
-    public function toString () {
+    public function __toString () {
 
         return '.' . $this->class;
     }
 
     public function toXPath () {
 
-        return '';
+        return sprintf("[contains(concat(' ', normalize-space(@class), ' '), concat(' ', '%s', ' '))]", $this->class);
     }
 }

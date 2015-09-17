@@ -36,7 +36,7 @@ class RGBColor {
         return sprintf('#%02x%02x%02x', $this->red, $this->green, $this->blue);
     }
 
-    public function toString () {
+    public function __toString () {
 
         if ($this->alpha < 1.0) {
 

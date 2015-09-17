@@ -50,7 +50,7 @@ class AttributeSelector extends SimpleSelector {
         }
     }
 
-    public function toString () {
+    public function __toString () {
 
         $result = $this->attribute;
 

@@ -82,7 +82,7 @@ class HSLColor {
         return $color;
     }
 
-    public function toString () {
+    public function __toString () {
 
         // Wrong!
 

@@ -21,8 +21,8 @@ class LengthValue implements Value {
         $this->unit = $unit;
     }
 
-    public function toString () {
+    public function __toString () {
 
-        return sprintf('%s%s', $this->value->toString(), $this->unit);
+        return sprintf('%s%s', $this->value->__toString(), $this->unit);
     }
 }

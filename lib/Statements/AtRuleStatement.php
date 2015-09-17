@@ -18,7 +18,7 @@ class AtRuleStatement extends Statement {
         $this->content = $content;
     }
 
-    public function toString () {
+    public function __toString () {
 
         if (is_string($this->content)) {
 
@@ -26,7 +26,7 @@ class AtRuleStatement extends Statement {
         }
         else {
 
-            $content = $this->content->toString();
+            $content = $this->content->__toString();
         }
 
         $result = '@' . $this->keyword . ' ' . $content;

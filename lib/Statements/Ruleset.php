@@ -18,14 +18,14 @@ class Ruleset extends Statement {
         array_push($this->declarations, new Declaration($property, $value));
     }
 
-    public function toString () {
+    public function __toString () {
 
-        $toStringFunc = function ($declaration) {
+        $__toStringFunc = function ($declaration) {
 
-            return $declaration->toString();
+            return $declaration->__toString();
         };
 
-        $str = implode('; ', array_map($toStringFunc, $this->declarations));
+        $str = implode('; ', array_map($__toStringFunc, $this->declarations));
 
         if ($this->selector) {
 

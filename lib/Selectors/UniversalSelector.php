@@ -10,7 +10,7 @@ class UniversalSelector extends SimpleSelector {
 
     public function __construct () {}
 
-    public function toString () {
+    public function __toString () {
 
         return '*';
     }

@@ -54,7 +54,7 @@ class Selector {
         return $specificity;
     }
 
-    public function toString () {
+    public function __toString () {
 
         $result = '';
 
@@ -66,7 +66,7 @@ class Selector {
             }
             else {
 
-                $result .= $item->toString();
+                $result .= $item->__toString();
             }
         }
 
@@ -75,6 +75,42 @@ class Selector {
 
     public function toXPath () {
 
-        return '';
+        $translate = function ($item) {
+
+            if (is_string($item)) {
+
+                switch ($item) {
+
+                case self::CHILD_COMBINATOR:
+
+                    return '/';
+
+                case self::ADJACENT_SIBLING_COMBINATOR:
+
+                    return '/following-sibling::*[1]/self::';
+
+                case self::GENERAL_SIBLING_COMBINATOR:
+
+                    return ''; // TODO
+
+                case self::DESCENDANT_COMBINATOR:
+
+                    return '//';
+
+                default:
+
+                    // This is an error condition
+                    return '';
+                }
+            }
+            else {
+
+                return $item->toXPath();
+            }
+        };
+
+        $parts = array_map($translate, $this->chain);
+
+        return '//' . implode($parts);
     }
 }

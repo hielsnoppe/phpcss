@@ -56,7 +56,7 @@ class RGBColorTest extends \PHPUnit_Framework_TestCase {
 
         $color = new RGBColor($red, $green, $blue, $alpha);
 
-        $string = $color->toString();
+        $string = $color->__toString();
 
         $this->assertEquals($rgb, $string);
     }

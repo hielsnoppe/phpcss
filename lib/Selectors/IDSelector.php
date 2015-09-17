@@ -15,13 +15,13 @@ class IDSelector extends SimpleSelector {
         $this->id = $id;
     }
 
-    public function toString () {
+    public function __toString () {
 
         return '#' . $this->id;
     }
 
     public function toXPath () {
 
-        return '';
+        return sprintf("[@id='%s']", $this->id);
     }
 }

@@ -4,7 +4,7 @@ namespace NielsHoppe\PHPCSS;
 
 class StringValue implements Value {
 
-    public function toString () {
+    public function __toString () {
         return '';
     }
 }

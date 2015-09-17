@@ -46,7 +46,7 @@ class HSLColorTest extends \PHPUnit_Framework_TestCase {
 
         $this->assertInstanceOf(RGBColor::class, $rgb);
 
-        $string = $rgb->toString();
+        $string = $rgb->__toString();
 
         $this->assertEquals($rgbString, $string);
     }

@@ -302,13 +302,16 @@ class ColorValue implements Value {
         }
     }
 
-    public function toString ($outputMode = self::OUTPUT_MODE_HEX) {
+    //public function __toString ($outputMode = self::OUTPUT_MODE_HEX) {
+    public function __toString () {
+
+        $outputMode = self::OUTPUT_MODE_HEX;
 
         switch ($outputMode) {
 
         case self::OUTPUT_MODE_RGB:
 
-            return $this->color->toString();
+            return $this->color->__toString();
 
         case self::OUTPUT_MODE_HEX:
         default:
