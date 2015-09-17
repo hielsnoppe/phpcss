@@ -64,6 +64,17 @@ class AttributeSelector extends SimpleSelector {
 
     public function toXPath () {
 
-        return '';
+        $templates = array(
+            self::MATCH_EXACT => '@%1$s = \'%2$s\'',
+            self::MATCH_DASH => '@%1$s = \'%2$s or starts-with(@%1$s, \'%2$s-\')\'',
+            self::MATCH_INCLUDES => 'contains(@%1$s, \'%2$s\')', // FIXME: This is wrong!
+            self::MATCH_PREFIX => 'starts-with(@%1$s, \'%2$s\')',
+            self::MATCH_SUFFIX => 'substring(@%1$s, string-length(@%1$s), ' . strlen($this->value) . ') = \'%2$s\'',
+            self::MATCH_SUBSTRING => 'contains(@%1$s, \'%2$s\')'
+        );
+
+        $template = $templates[$this->operator];
+
+        return sprintf('[' . $template . ']', $this->attribute, $this->value);
     }
 }
