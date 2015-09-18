@@ -11,8 +11,6 @@ class SelectorBuilderTest extends \PHPUnit_Framework_TestCase {
 
     public function testCreatesCorrectSelector () {
 
-        //$this->markTestIncomplete();
-
         $sb = new SelectorBuilder('p');
         $sb
             ->hasClass('intro')

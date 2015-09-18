@@ -14,7 +14,7 @@ class SelectorBuilder {
         $this->openAttribute = null;
         $this->chain = array();
 
-        $this->addTypeOrUniversal($type);
+        $this->addTypeOrUniversalSelector($type);
 
         return $this;
     }
@@ -23,7 +23,7 @@ class SelectorBuilder {
 
         $this->closeOpenAttribute();
         $this->addSelectorOrCombinator(Selector::DESCENDANT_COMBINATOR);
-        $this->addTypeOrUniversal($type);
+        $this->addTypeOrUniversalSelector($type);
 
         return $this;
     }
@@ -32,7 +32,7 @@ class SelectorBuilder {
 
         $this->closeOpenAttribute();
         $this->addSelectorOrCombinator(Selector::CHILD_COMBINATOR);
-        $this->addTypeOrUniversal($type);
+        $this->addTypeOrUniversalSelector($type);
 
         return $this;
     }
@@ -41,7 +41,7 @@ class SelectorBuilder {
 
         $this->closeOpenAttribute();
         $this->addSelectorOrCombinator(Selector::GENERAL_SIBLING_COMBINATOR);
-        $this->addTypeOrUniversal($type);
+        $this->addTypeOrUniversalSelector($type);
 
         return $this;
     }
@@ -50,7 +50,7 @@ class SelectorBuilder {
 
         $this->closeOpenAttribute();
         $this->addSelectorOrCombinator(Selector::ADJACENT_SIBLING_COMBINATOR);
-        $this->addTypeOrUniversal($type);
+        $this->addTypeOrUniversalSelector($type);
 
         return $this;
     }
@@ -167,12 +167,14 @@ class SelectorBuilder {
 
     public function getSelector () {
 
+        $chain = $this->chain;
+
         if ($this->attributeOpen) {
 
-            $this->addSelectorOrCombinator(new AttributeSelector($this->openAttribute));
+            array_push($chain, new AttributeSelector($this->openAttribute));
         }
 
-        return new Selector($this->chain);
+        return new Selector($chain);
     }
 
     /**
@@ -184,7 +186,7 @@ class SelectorBuilder {
         array_push($this->chain, $item);
     }
 
-    protected function addTypeOrUniversal ($type = '*') {
+    protected function addTypeOrUniversalSelector ($type = '*') {
 
         $this->addSelectorOrCombinator(
             $type == '*' ?
