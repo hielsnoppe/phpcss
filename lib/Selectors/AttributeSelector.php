@@ -52,28 +52,33 @@ class AttributeSelector extends SimpleSelector {
 
     public function __toString () {
 
-        $result = $this->attribute;
-
         if (isset($this->value)) {
 
-            $result .= $this->operator . $this->value;
+            return sprintf('[%1$s %2$s \'%3$s\']', $this->attribute, $this->operator, $this->value);
         }
 
-        return '[' . $result . ']';
+        return sprintf('[%s]', $this->attribute);
     }
 
     public function toXPath () {
 
-        $templates = array(
-            self::MATCH_EXACT => '@%1$s = \'%2$s\'',
-            self::MATCH_DASH => '@%1$s = \'%2$s or starts-with(@%1$s, \'%2$s-\')\'',
-            self::MATCH_INCLUDES => 'contains(@%1$s, \'%2$s\')', // FIXME: This is wrong!
-            self::MATCH_PREFIX => 'starts-with(@%1$s, \'%2$s\')',
-            self::MATCH_SUFFIX => 'substring(@%1$s, string-length(@%1$s), ' . strlen($this->value) . ') = \'%2$s\'',
-            self::MATCH_SUBSTRING => 'contains(@%1$s, \'%2$s\')'
-        );
+        if (isset($this->value)) {
 
-        $template = $templates[$this->operator];
+            $templates = array(
+                self::MATCH_EXACT => '@%1$s = \'%2$s\'',
+                self::MATCH_DASH => '@%1$s = \'%2$s\' or starts-with(@%1$s, \'%2$s-\')',
+                self::MATCH_INCLUDES => 'contains(concat(\' \', normalize-space(@%1$s), \' \'), concat(\' \', \'%2$s\', \' \'))',
+                self::MATCH_PREFIX => 'starts-with(@%1$s, \'%2$s\')',
+                self::MATCH_SUFFIX => 'substring(@%1$s, string-length(@%1$s), ' . strlen($this->value) . ') = \'%2$s\'',
+                self::MATCH_SUBSTRING => 'contains(@%1$s, \'%2$s\')'
+            );
+
+            $template = $templates[$this->operator];
+        }
+        else {
+
+            $template = '@%1$s';
+        }
 
         return sprintf('[' . $template . ']', $this->attribute, $this->value);
     }
