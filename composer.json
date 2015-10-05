@@ -18,7 +18,8 @@
         }
     },
     "support": {
-        "source": "https://github.com/hielsnoppe/phpcss"
+        "source": "https://github.com/hielsnoppe/phpcss",
+        "issues": "https://github.com/hielsnoppe/phpcss/issues"
     },
     "require-dev": {
         "phpunit/phpunit": "4.8.*"
