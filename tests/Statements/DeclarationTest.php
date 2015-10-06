@@ -2,9 +2,9 @@
 
 namespace NielsHoppe\PHPCSS\Statements;
 
-use \NielsHoppe\PHPCSS\Statements\Ruleset;
+use \NielsHoppe\PHPCSS\Statements\Declaration;
 
-class RulesetTest extends \PHPUnit_Framework_TestCase {
+class DeclarationTest extends \PHPUnit_Framework_TestCase {
 
     /**
      * @dataProvider    validInputForParsing
@@ -12,9 +12,9 @@ class RulesetTest extends \PHPUnit_Framework_TestCase {
 
     public function testCanBeCreatedFromValidInput ($string) {
 
-        $rs = Ruleset::parse($string);
+        $rs = Declaration::parse($string);
 
-        $this->assertInstanceOf(Ruleset::class, $rs);
+        $this->assertInstanceOf(Declaration::class, $rs);
     }
 
     /**
@@ -25,7 +25,7 @@ class RulesetTest extends \PHPUnit_Framework_TestCase {
 
         $this->setExpectedException('Exception', $message);
 
-        $rs = Ruleset::parse($string);
+        $rs = Declaration::parse($string);
     }
 
     /**
@@ -34,7 +34,7 @@ class RulesetTest extends \PHPUnit_Framework_TestCase {
 
     public function testCanBeSerialized ($string, $css) {
 
-        $rs = Ruleset::parse($string);
+        $rs = Declaration::parse($string);
 
         $this->assertEquals($css, strval($rs));
     }
@@ -44,19 +44,14 @@ class RulesetTest extends \PHPUnit_Framework_TestCase {
         return array(
 
             array(
-                'font-size: 12px; color: #ff0000',
-                'font-size: 12px; color: #ff0000'
+                'font-size: 12px',
+                'font-size: 12px'
             ),
 
             array(
-                'font-size: 12px; color: #ff0000;',
-                'font-size: 12px; color: #ff0000'
-            ),
-
-            array(
-                'body { font-size: 12px; color: #ff0000 }',
-                'body { font-size: 12px; color: #ff0000 }'
-            ),
+                'color: #ff0000',
+                'color: #ff0000'
+            )
         );
     }
 
@@ -65,8 +60,8 @@ class RulesetTest extends \PHPUnit_Framework_TestCase {
         return array(
 
             array(
-                'body { font-size: 12px; color: #ff0000 } asdf',
-                'Extra content after closing bracket: \' asdf\''
+                'font-size 12px',
+                'Invalid Declaration \'font-size 12px\'.'
             )
         );
     }

@@ -13,6 +13,10 @@ class Ruleset extends Statement {
         $this->declarations = array();
     }
 
+    /**
+     * @return Declaration
+     */
+
     public static function parse ($string) {
 
         $result = new Ruleset();
@@ -47,15 +51,37 @@ class Ruleset extends Statement {
         return $result;
     }
 
-    public function addDeclaration ($property, $value) {
+    /**
+     * @param Declaration $declaration
+     */
 
-        array_push($this->declarations, new Declaration($property, $value));
+    public function addDeclaration (Declaration $declaration) {
+
+        array_push($this->declarations, $declaration);
     }
+
+    /**
+     * @param string $property
+     * @param string $value
+     */
+
+    public function createDeclaration ($property, $value) {
+
+        $this->addDeclaration(new Declaration($property, $value));
+    }
+
+    /**
+     * @return Declaration[]
+     */
 
     public function getDeclarations () {
 
         return $this->declarations;
     }
+
+    /**
+     * @return string
+     */
 
     public function __toString () {
 

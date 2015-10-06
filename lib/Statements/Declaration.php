@@ -40,6 +40,10 @@ class Declaration {
         return $this->value;
     }
 
+    /**
+     * @return string
+     */
+
     public function __toString () {
 
         $value = is_object($this->value) ? $this->value->__toString() : $this->value;

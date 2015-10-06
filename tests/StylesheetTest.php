@@ -13,11 +13,11 @@ class StylesheetTest extends \PHPUnit_Framework_TestCase {
         $style = new Stylesheet();
 
         $html = new Ruleset('html');
-        $html->addDeclaration('color', new ColorValue('#00f'));
+        $html->createDeclaration('color', new ColorValue('#00f'));
 
         $body = new Ruleset('body');
-        $body->addDeclaration('background-color', new ColorValue('rgba(128, 255 , 0, 0.5)'));
-        $body->addDeclaration('padding-top', '10px');
+        $body->createDeclaration('background-color', new ColorValue('rgba(128, 255 , 0, 0.5)'));
+        $body->createDeclaration('padding-top', '10px');
 
         $style->addStatement($html);
         $style->addStatement($body);
