@@ -1,8 +1,8 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Statements;
+namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
-use \NielsHoppe\PHPCSS\Statements\Ruleset;
+use \NielsHoppe\PHPCSS\Syntax\Statements\Ruleset;
 
 class RulesetTest extends \PHPUnit_Framework_TestCase {
 

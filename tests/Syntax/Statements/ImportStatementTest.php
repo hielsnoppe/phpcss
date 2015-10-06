@@ -1,8 +1,8 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Statements;
+namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
-use \NielsHoppe\PHPCSS\Statements\ImportStatement as ImportStatement;
+use \NielsHoppe\PHPCSS\Syntax\Statements\ImportStatement as ImportStatement;
 
 class ImportStatementTest extends \PHPUnit_Framework_TestCase {
 

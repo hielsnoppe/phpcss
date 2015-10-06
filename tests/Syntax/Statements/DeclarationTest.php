@@ -1,8 +1,8 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Statements;
+namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
-use \NielsHoppe\PHPCSS\Statements\Declaration;
+use \NielsHoppe\PHPCSS\Syntax\Statements\Declaration;
 
 class DeclarationTest extends \PHPUnit_Framework_TestCase {
 

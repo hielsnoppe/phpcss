@@ -2,7 +2,7 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
-use NielsHoppe\PHPCSS\Statements\AtRuleStatement as AtRuleStatement;
+use NielsHoppe\PHPCSS\Syntax\Statements\AtRuleStatement;
 
 class ImportStatement extends AtRuleStatement {
 

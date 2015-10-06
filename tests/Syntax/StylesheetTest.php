@@ -1,10 +1,10 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Color;
+namespace NielsHoppe\PHPCSS\Syntax;
 
-use \NielsHoppe\PHPCSS\Stylesheet as Stylesheet;
-use \NielsHoppe\PHPCSS\Statements\Ruleset as Ruleset;
-use \NielsHoppe\PHPCSS\Values\ColorValue as ColorValue;
+use \NielsHoppe\PHPCSS\Syntax\Stylesheet;
+use \NielsHoppe\PHPCSS\Syntax\Statements\Ruleset;
+use \NielsHoppe\PHPCSS\Values\ColorValue;
 
 class StylesheetTest extends \PHPUnit_Framework_TestCase {
 
