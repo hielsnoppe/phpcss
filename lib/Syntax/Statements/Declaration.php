@@ -1,6 +1,6 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Statements;
+namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
 class Declaration {
 
