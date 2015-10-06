@@ -142,7 +142,7 @@ class PropertyFactory {
         */
     );
 
-    public static createProperty ($ident) {
+    public static function createProperty ($ident) {
 
         return new WidthProperty();
     }

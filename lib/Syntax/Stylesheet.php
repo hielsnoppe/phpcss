@@ -1,6 +1,6 @@
 <?php
 
-namespace NielsHoppe\PHPCSS;
+namespace NielsHoppe\PHPCSS\Syntax;
 
 class Stylesheet {
 
@@ -25,15 +25,15 @@ class Stylesheet {
 
     public function __toString () {
 
-        $__toStringFunc = function ($item) {
+        $toStringFunc = function ($item) {
 
             return $item->__toString();
         };
 
         $parts = array();
 
-        array_push($parts, implode("\n", array_map($__toStringFunc, $this->imports)));
-        array_push($parts, implode("\n", array_map($__toStringFunc, $this->statements)));
+        array_push($parts, implode("\n", array_map($toStringFunc, $this->imports)));
+        array_push($parts, implode("\n", array_map($toStringFunc, $this->statements)));
 
         return implode("\n", array_filter($parts));
     }
