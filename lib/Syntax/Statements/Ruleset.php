@@ -71,10 +71,26 @@ class Ruleset extends Statement {
     }
 
     /**
+     * @param string[] $filter
      * @return Declaration[]
      */
 
-    public function getDeclarations () {
+    public function getDeclarations ($filter = array()) {
+
+        if (count($filter)) {
+
+            $result = array();
+
+            foreach ($this->declarations as $declaration) {
+
+                if (in_array($declaration->getProperty(), $filter)) {
+
+                    array_push($result, $declaration);
+                }
+            }
+
+            return $result;
+        }
 
         return $this->declarations;
     }
