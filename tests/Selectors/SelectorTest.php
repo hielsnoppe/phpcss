@@ -2,10 +2,11 @@
 
 namespace NielsHoppe\PHPCSS\Selectors;
 
-use \NielsHoppe\PHPCSS\Selectors\Selector as Selector;
-use \NielsHoppe\PHPCSS\Selectors\TypeSelector as TypeSelector;
 use \NielsHoppe\PHPCSS\Selectors\ClassSelector as ClassSelector;
 use \NielsHoppe\PHPCSS\Selectors\IDSelector as IDSelector;
+use \NielsHoppe\PHPCSS\Selectors\Selector as Selector;
+use \NielsHoppe\PHPCSS\Selectors\TypeSelector as TypeSelector;
+use \NielsHoppe\PHPCSS\Selectors\UniversalSelector as UniversalSelector;
 
 class SelectorTest extends \PHPUnit_Framework_TestCase {
 
