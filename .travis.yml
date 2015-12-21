@@ -23,6 +23,7 @@ php:
 branches:
     only:
         - master
+        - develop
 
 install: composer install
 script: composer test
