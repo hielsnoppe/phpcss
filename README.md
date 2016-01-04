@@ -32,21 +32,21 @@ Given that you have the Composer autoloader in place, you can use PHPCSS as foll
 ```
 <?php
 
-use \NielsHoppe\PHPCSS\Stylesheet as Stylesheet;
-use \NielsHoppe\PHPCSS\Ruleset as Ruleset;
-use \NielsHoppe\PHPCSS\Values\ColorValue as ColorValue;
+use \NielsHoppe\PHPCSS\Stylesheet;
+use \NielsHoppe\PHPCSS\Ruleset;
+use \NielsHoppe\PHPCSS\Values\ColorValue;
 
 $style = new Stylesheet();
 
 $html = new Ruleset('html');
-$html->addDeclaration('color', new ColorValue('#00f'));
+$html->createDeclaration('color', new ColorValue('#00f'));
 
 $body = new Ruleset('body');
-$body->addDeclaration('background-color', new ColorValue('rgba(128, 255 , 0, 0.5)'));
-$body->addDeclaration('padding-top', '10px');
+$body->createDeclaration('background-color', new ColorValue('rgba(128, 255 , 0, 0.5)'));
+$body->createDeclaration('padding-top', '10px');
 
 $style->addStatement($html);
 $style->addStatement($body);
 
-echo($style->__toString());
+echo($style);
 ```
