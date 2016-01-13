@@ -1,6 +1,6 @@
 <?php
 
-namespace NielsHoppe\PHPCSS;
+namespace NielsHoppe\PHPCSS\Values;
 
 class URIValue implements Value {
 
