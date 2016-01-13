@@ -2,21 +2,30 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
-/**
- * @property string $keyword
- * @property string|Block $content
- */
-
 class AtRuleStatement extends Statement {
+
+    /**
+     * @var string          $keyword
+     * @var string|Block    $content
+     */
 
     protected $keyword;
     protected $content;
+
+    /**
+     * @param string    $keyword
+     * @param string    $content
+     */
 
     public function __construct ($keyword, $content) {
 
         $this->keyword = $keyword;
         $this->content = $content;
     }
+
+    /**
+     * @return string
+     */
 
     public function __toString () {
 
@@ -29,7 +38,7 @@ class AtRuleStatement extends Statement {
             $content = $this->content->__toString();
         }
 
-        $result = '@' . $this->keyword . ' ' . $content;
+        $result = sprintf('@%s %s', $this->keyword, $content);
 
         return $result;
     }
