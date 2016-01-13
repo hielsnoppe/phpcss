@@ -50,3 +50,19 @@ $style->addStatement($body);
 
 echo($style);
 ```
+
+# Documentation and testing
+
+You can create documentation with phpDocumentor as follows:
+
+```
+$ composer docs
+```
+
+This will create extensive HTML documentation in the `docs/` folder.
+
+You can run the PHPUnit tests as follows:
+
+```
+$ composer test
+```
