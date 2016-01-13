@@ -10,7 +10,7 @@ It is planned to support converting CSS selectors to XPath aswell as writing rul
 
 To install this library via [Composer](http://getcomposer.org) add the following to your `composer.json` and then run `composer update`:
 
-```
+```json
 {
     "minimum-stability": "dev",
     "repositories": [
@@ -29,7 +29,7 @@ To install this library via [Composer](http://getcomposer.org) add the following
 
 Given that you have the Composer autoloader in place, you can use PHPCSS as follows:
 
-```
+```php
 <?php
 
 use \NielsHoppe\PHPCSS\Stylesheet;
