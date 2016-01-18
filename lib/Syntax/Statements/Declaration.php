@@ -9,12 +9,23 @@ namespace NielsHoppe\PHPCSS\Syntax\Statements;
 class Declaration {
 
     /**
-     * @var $property
-     * @var Values\Value $value
+     * @var string $property  The declared Property
      */
 
     private $property;
+
+    /**
+     * @var Values\Value $value  The declared Value
+     */
+
     private $value;
+
+    /**
+     * Construct a Declaration from a Property and a Value
+     *
+     * @param Property    $property
+     * @param Value       $value
+     */
 
     public function __construct ($property, $value) {
 
@@ -25,7 +36,7 @@ class Declaration {
     /**
      * Parse a Declaration from a string
      *
-     * @param string $string
+     * @param string      $string
      * @return Declaration
      */
 

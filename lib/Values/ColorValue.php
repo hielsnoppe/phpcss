@@ -209,10 +209,16 @@ class ColorValue implements Value {
     );
 
     /**
-     * @var $color
+     * @var $color  The color
      */
 
     private $color;
+
+    /**
+     * Construct a ColorValue from a string
+     *
+     * @param string  $value
+     */
 
     public function __construct ($value) {
 

@@ -11,6 +11,8 @@ use NielsHoppe\PHPCSS\Syntax\Statements\AtRuleStatement;
 class ImportStatement extends AtRuleStatement {
 
     /**
+     * Construct an ImportStatement from a URL and optionally media types
+     *
      * @param string $url
      * @param string|[string] $media
      */
