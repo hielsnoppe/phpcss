@@ -2,6 +2,10 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
+/**
+ * @see https://www.w3.org/TR/CSS21/syndata.html#at-rules
+ */
+
 class AtRuleStatement extends Statement {
 
     /**
@@ -24,6 +28,8 @@ class AtRuleStatement extends Statement {
     }
 
     /**
+     * Return string representation
+     *
      * @return string
      */
 

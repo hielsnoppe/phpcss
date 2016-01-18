@@ -2,7 +2,16 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
+/**
+ * @see https://www.w3.org/TR/CSS21/syndata.html#declaration
+ */
+
 class Declaration {
+
+    /**
+     * @var $property
+     * @var Values\Value $value
+     */
 
     private $property;
     private $value;
@@ -12,6 +21,13 @@ class Declaration {
         $this->property = $property;
         $this->value = $value;
     }
+
+    /**
+     * Parse a Declaration from a string
+     *
+     * @param string $string
+     * @return Declaration
+     */
 
     public static function parse ($string) {
 
@@ -30,10 +46,22 @@ class Declaration {
         return $result;
     }
 
+    /**
+     * Return property part of this Declaration
+     *
+     * @return Property
+     */
+
     public function getProperty () {
 
         return $this->property;
     }
+
+    /**
+     * Return value part of this Declaration
+     *
+     * @return Value
+     */
 
     public function getValue () {
 
@@ -41,6 +69,8 @@ class Declaration {
     }
 
     /**
+     * Return string representation
+     *
      * @return string
      */
 

@@ -2,10 +2,23 @@
 
 namespace NielsHoppe\PHPCSS\Values;
 
+/**
+ * @see https://www.w3.org/TR/css3-values/#length-value
+ */
+
 class LengthValue implements Value {
+
+    /**
+     * @var NumberValue $value
+     * @var string $unit
+     */
 
     private $value; // NumberValue
     private $unit; // string
+
+    /**
+     *
+     */
 
     public function __construct ($value, $unit = null) {
 
@@ -20,6 +33,12 @@ class LengthValue implements Value {
         $this->value = $value;
         $this->unit = $unit;
     }
+
+    /**
+     * Return a string representation
+     *
+     * @return string
+     */
 
     public function __toString () {
 

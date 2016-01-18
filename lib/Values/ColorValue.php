@@ -5,6 +5,10 @@ namespace NielsHoppe\PHPCSS\Values;
 use NielsHoppe\PHPCSS\Color\RGBColor as RGBColor;
 use NielsHoppe\PHPCSS\Color\HSLColor as HSLColor;
 
+/**
+ *
+ */
+
 class ColorValue implements Value {
 
     const OUTPUT_MODE_HEX   = 0;
@@ -204,6 +208,10 @@ class ColorValue implements Value {
         'yellowgreen' => '#9ACD32',
     );
 
+    /**
+     * @var $color
+     */
+
     private $color;
 
     public function __construct ($value) {
@@ -302,7 +310,12 @@ class ColorValue implements Value {
         }
     }
 
-    //public function __toString ($outputMode = self::OUTPUT_MODE_HEX) {
+    /**
+     * Return a string representation
+     *
+     * @return string
+     */
+
     public function __toString () {
 
         $outputMode = self::OUTPUT_MODE_HEX;

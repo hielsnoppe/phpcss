@@ -4,7 +4,16 @@ namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
 use NielsHoppe\PHPCSS\Syntax\Statements\AtRuleStatement;
 
+/**
+ * @see https://www.w3.org/TR/CSS21/cascade.html#at-import
+ */
+
 class ImportStatement extends AtRuleStatement {
+
+    /**
+     * @param string $url
+     * @param string|[string] $media
+     */
 
     public function __construct ($url, $media = null) {
 
