@@ -10,31 +10,9 @@ class StyleRuleTest extends \PHPUnit_Framework_TestCase {
      * @dataProvider    validInputForParsing
      */
 
-    public function testCanBeCreatedFromValidInput ($string) {
-
-        $rs = StyleRule::parse($string);
-
-        $this->assertInstanceOf(StyleRule::class, $rs);
-    }
-
-    /**
-     * @dataProvider    invalidInputForParsing
-     */
-
-    public function testThrowsExceptionParsingInvalidInput ($string, $message) {
-
-        $this->setExpectedException('Exception', $message);
-
-        $rs = StyleRule::parse($string);
-    }
-
-    /**
-     * @dataProvider    validInputForParsing
-     */
-
     public function testCanBeSerialized ($string, $css) {
 
-        $rs = StyleRule::parse($string);
+        $rs = Parser::parseRule($string);
 
         $this->assertEquals($css, strval($rs));
     }
@@ -57,17 +35,6 @@ class StyleRuleTest extends \PHPUnit_Framework_TestCase {
                 'body { font-size: 12px; color: #ff0000 }',
                 'body { font-size: 12px; color: #ff0000 }'
             ),
-        );
-    }
-
-    public function invalidInputForParsing () {
-
-        return array(
-
-            array(
-                'body { font-size: 12px; color: #ff0000 } asdf',
-                'Extra content after closing bracket: \' asdf\''
-            )
         );
     }
 }

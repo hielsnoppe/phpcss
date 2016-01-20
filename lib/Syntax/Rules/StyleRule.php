@@ -2,64 +2,18 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Rules;
 
+use NielsHoppe\PHPCSS\Syntax\DeclarationList;
+
 /**
  * @see https://www.w3.org/TR/css-syntax-3/#style-rule
  */
 
 class StyleRule extends QualifiedRule {
 
-    /**
-     * @var $selectors
-     * @var [Declaration] $declarations
-     */
-
-    private $selector;
-    private $declarations;
-
     public function __construct ($selector = null) {
 
-        $this->selector = $selector;
-        $this->declarations = array();
-    }
-
-    /**
-     * Parses a StyleRule from a string
-     *
-     * @return Declaration
-     */
-
-    public static function parse ($string) {
-
-        $result = new StyleRule();
-
-        $selector = null;
-        $parts = array_filter(explode('{', $string));
-
-        if (count($parts) > 1) {
-
-            $selector = trim($parts[0]);
-            $parts = array_filter(explode('}', $parts[1]));
-
-            if (count($parts) > 1) {
-
-                throw new \Exception('Extra content after closing bracket: \'' . $parts[1] . '\'');
-            }
-        }
-
-        $body = trim($parts[0]);
-
-        $tokens = array_filter(explode(';', $string));
-
-        $declarations = array_map(function ($token) {
-
-            $declaration = Declaration::parse($token);
-
-            return $declaration;
-        }, $tokens);
-
-        $result->declarations = $declarations;
-
-        return $result;
+        $this->prelude = $selector;
+        $this->block = new DeclarationList();
     }
 
     /**
@@ -70,7 +24,7 @@ class StyleRule extends QualifiedRule {
 
     public function addDeclaration (Declaration $declaration) {
 
-        array_push($this->declarations, $declaration);
+        $this->block->addDeclaration($declaration);
     }
 
     /**
@@ -82,7 +36,7 @@ class StyleRule extends QualifiedRule {
 
     public function createDeclaration ($property, $value) {
 
-        $this->addDeclaration(new Declaration($property, $value));
+        $this->block->createDeclaration($property, $value);
     }
 
     /**
@@ -94,22 +48,7 @@ class StyleRule extends QualifiedRule {
 
     public function getDeclarations ($filter = array()) {
 
-        if (count($filter)) {
-
-            $result = array();
-
-            foreach ($this->declarations as $declaration) {
-
-                if (in_array($declaration->getProperty(), $filter)) {
-
-                    array_push($result, $declaration);
-                }
-            }
-
-            return $result;
-        }
-
-        return $this->declarations;
+        return $this->block->getDeclarations($filter);
     }
 
     /**
@@ -120,7 +59,7 @@ class StyleRule extends QualifiedRule {
 
     public function __toString () {
 
-        $str = implode('; ', array_map('strval', $this->declarations));
+        $str = strval($this->block);
 
         if ($this->selector) {
 
