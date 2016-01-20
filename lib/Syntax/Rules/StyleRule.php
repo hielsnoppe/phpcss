@@ -1,16 +1,15 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Syntax\Statements;
+namespace NielsHoppe\PHPCSS\Syntax\Rules;
 
 /**
- * @see https://www.w3.org/TR/CSS21/syndata.html#rule-sets
  * @see https://www.w3.org/TR/css-syntax-3/#style-rule
  */
 
-class Ruleset extends Statement {
+class StyleRule extends QualifiedRule {
 
     /**
-     * @var $selector
+     * @var $selectors
      * @var [Declaration] $declarations
      */
 
@@ -25,13 +24,13 @@ class Ruleset extends Statement {
 
     /**
      * Parses a StyleRule from a string
-     * 
+     *
      * @return Declaration
      */
 
     public static function parse ($string) {
 
-        $result = new Ruleset();
+        $result = new StyleRule();
 
         $selector = null;
         $parts = array_filter(explode('{', $string));

@@ -1,9 +1,9 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Syntax\Statements;
+namespace NielsHoppe\PHPCSS\Syntax;
 
 /**
- * @see https://www.w3.org/TR/CSS21/syndata.html#declaration
+ * @see https://www.w3.org/TR/css-syntax-3/#declaration
  */
 
 class Declaration {

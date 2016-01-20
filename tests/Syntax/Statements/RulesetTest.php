@@ -2,9 +2,9 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
-use \NielsHoppe\PHPCSS\Syntax\Statements\Ruleset;
+use \NielsHoppe\PHPCSS\Syntax\StyleRule;
 
-class RulesetTest extends \PHPUnit_Framework_TestCase {
+class StyleRuleTest extends \PHPUnit_Framework_TestCase {
 
     /**
      * @dataProvider    validInputForParsing
@@ -12,9 +12,9 @@ class RulesetTest extends \PHPUnit_Framework_TestCase {
 
     public function testCanBeCreatedFromValidInput ($string) {
 
-        $rs = Ruleset::parse($string);
+        $rs = StyleRule::parse($string);
 
-        $this->assertInstanceOf(Ruleset::class, $rs);
+        $this->assertInstanceOf(StyleRule::class, $rs);
     }
 
     /**
@@ -25,7 +25,7 @@ class RulesetTest extends \PHPUnit_Framework_TestCase {
 
         $this->setExpectedException('Exception', $message);
 
-        $rs = Ruleset::parse($string);
+        $rs = StyleRule::parse($string);
     }
 
     /**
@@ -34,7 +34,7 @@ class RulesetTest extends \PHPUnit_Framework_TestCase {
 
     public function testCanBeSerialized ($string, $css) {
 
-        $rs = Ruleset::parse($string);
+        $rs = StyleRule::parse($string);
 
         $this->assertEquals($css, strval($rs));
     }
