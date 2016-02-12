@@ -2,7 +2,17 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
+/**
+ * @see https://www.w3.org/TR/CSS21/syndata.html#rule-sets
+ * @see https://www.w3.org/TR/css-syntax-3/#style-rule
+ */
+
 class Ruleset extends Statement {
+
+    /**
+     * @var $selector
+     * @var [Declaration] $declarations
+     */
 
     private $selector;
     private $declarations;
@@ -14,6 +24,8 @@ class Ruleset extends Statement {
     }
 
     /**
+     * Parses a StyleRule from a string
+     * 
      * @return Declaration
      */
 
@@ -52,6 +64,8 @@ class Ruleset extends Statement {
     }
 
     /**
+     * Adds a Declaration to this StyleRule
+     *
      * @param Declaration $declaration
      */
 
@@ -61,6 +75,8 @@ class Ruleset extends Statement {
     }
 
     /**
+     * Shorthand for creating and adding a declaration to this StyleRule
+     *
      * @param string $property
      * @param string $value
      */
@@ -71,6 +87,8 @@ class Ruleset extends Statement {
     }
 
     /**
+     * Return all declarations from this style rule
+     *
      * @param string[] $filter
      * @return Declaration[]
      */
@@ -96,6 +114,8 @@ class Ruleset extends Statement {
     }
 
     /**
+     * Return string representation
+     *
      * @return string
      */
 

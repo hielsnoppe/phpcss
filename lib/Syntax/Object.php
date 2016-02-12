@@ -1,14 +1,19 @@
 <?php
 
-namespace NielsHoppe\PHPCSS;
+namespace NielsHoppe\PHPCSS\Syntax;
 
 /**
- * TODO: Rename. This interface is poorly named.
  * Objects implementing this interface are required to have a method __toString()
  * that will output valid CSS.
  */
 
-interface Printable {
+interface Object {
+
+    /**
+     * Return a string representation
+     *
+     * @return string
+     */
 
     public function __toString ();
 }

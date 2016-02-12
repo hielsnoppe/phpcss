@@ -2,10 +2,18 @@
 
 namespace NielsHoppe\PHPCSS\Syntax;
 
+/**
+ */
+
 class Stylesheet {
 
-    private $imports;       // @import (special AtRule)
-    private $statements;    // Ruleset or AtRule (except @import)
+    /**
+     * @var ImportStatement @import (special AtRule)
+     * @var [Ruleset|AtRule]    Ruleset or AtRule (except @import)
+     */
+
+    private $imports;
+    private $statements;
 
     public function __construct () {
 
@@ -13,15 +21,27 @@ class Stylesheet {
         $this->statements = array();
     }
 
+    /**
+     * @param ImportStatement   $import
+     */
+
     public function addImport (ImportStatement $import) {
 
         array_push($this->imports, $import);
     }
 
+    /**
+     * @param Statement     $statement
+     */
+
     public function addStatement ($statement) {
 
         array_push($this->statements, $statement);
     }
+
+    /**
+     * @return string
+     */
 
     public function __toString () {
 

@@ -3,16 +3,27 @@
 namespace NielsHoppe\PHPCSS\Color;
 
 /**
- * http://stackoverflow.com/a/20440417/948404
- * http://stackoverflow.com/questions/2353211/hsl-to-rgb-color-conversion
+ * @see http://stackoverflow.com/a/20440417/948404
+ * @see http://stackoverflow.com/questions/2353211/hsl-to-rgb-color-conversion
  */
 
 class HSLColor {
 
-    private $hue;
-    private $saturation;
-    private $lightness;
-    private $alpha;
+    /**
+     * @var int         $hue
+     * @var int         $saturation
+     * @var int         $lightness
+     * @var int|null    $alpha      Alpha value between 0.0 and 1.0
+     */
+
+    private $hue, $saturation, $lightness, $alpha;
+
+    /**
+     * @param int       $hue
+     * @param int       $saturation
+     * @param int       $lightness
+     * @param int|null  $alpha      Alpha value between 0.0 and 1.0
+     */
 
     public function __construct ($hue, $saturation, $lightness, $alpha = null) {
 
@@ -29,6 +40,10 @@ class HSLColor {
             $this->alpha = 1.0;
         }
     }
+
+    /**
+     *
+     */
 
     public function huetorgb($m1, $m2, $hue) {
 
@@ -60,6 +75,12 @@ class HSLColor {
         return $m1;
     }
 
+    /**
+     * Get RGB representation
+     *
+     * @return RGBColor
+     */
+
     public function toRGBColor () {
 
         if ($this->lightness < 0.5) {
@@ -82,9 +103,15 @@ class HSLColor {
         return $color;
     }
 
+    /**
+     * Get string representation
+     *
+     * @return string
+     */
+
     public function __toString () {
 
-        // Wrong!
+        // FIXME Wrong!
 
         if ($this->alpha < 1.0) {
 

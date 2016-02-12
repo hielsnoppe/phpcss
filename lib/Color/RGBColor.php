@@ -2,18 +2,29 @@
 
 namespace NielsHoppe\PHPCSS\Color;
 
-use NielsHoppe\PHPCSS\Util as Util;
+use NielsHoppe\PHPCSS\Util;
 
 /**
- * TODO: Implement percent values
+ * @TODO Implement percent values
  */
 
 class RGBColor {
 
-    private $red;
-    private $green;
-    private $blue;
-    private $alpha;
+    /**
+     * @var int         $red    The amount of red
+     * @var int         $green  The amount of green
+     * @var int         $blue   The amount of blue
+     * @var float|null  $alpha  Alpha value between 0.0 and 1.0
+     */
+
+    private $red, $green, $blue, $alpha;
+
+    /**
+     * @param int           $red    The amount of red
+     * @param int           $green  The amount of green
+     * @param int           $blue   The amount of blue
+     * @param float|null    $alpha  Alpha value between 0.0 and 1.0
+     */
 
     public function __construct ($red, $green, $blue, $alpha = null) {
 
@@ -31,10 +42,22 @@ class RGBColor {
         }
     }
 
+    /**
+     * Get a representation as a hexadecimal number
+     *
+     * @return string
+     */
+
     public function toHexString () {
 
         return sprintf('#%02x%02x%02x', $this->red, $this->green, $this->blue);
     }
+
+    /**
+     * Get a string representation
+     *
+     * @return string
+     */
 
     public function __toString () {
 
