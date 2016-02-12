@@ -11,7 +11,7 @@ class Ruleset extends Statement {
 
     /**
      * @var $selector
-     * @var [Declaration] $declarations
+     * @var Declaration[] $declarations
      */
 
     private $selector;
@@ -25,7 +25,7 @@ class Ruleset extends Statement {
 
     /**
      * Parses a StyleRule from a string
-     * 
+     *
      * @return Declaration
      */
 

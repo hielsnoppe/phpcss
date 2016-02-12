@@ -10,11 +10,13 @@ use NielsHoppe\PHPCSS\Syntax\Statements\AtRuleStatement;
 
 class ImportStatement extends AtRuleStatement {
 
+    private $media;
+
     /**
      * Construct an ImportStatement from a URL and optionally media types
      *
-     * @param string $url
-     * @param string|[string] $media
+     * @param string            $url
+     * @param string|string[]   $media
      */
 
     public function __construct ($url, $media = null) {

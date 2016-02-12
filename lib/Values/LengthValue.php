@@ -25,7 +25,7 @@ class LengthValue implements Value {
         $value = NumberValue::parse($value);
         $unit = Unit::parse($unit); // throws InvalidUnitException
 
-        if (empty($unit) and $value->read() != 0) {
+        if (empty($unit) && $value->read() != 0) {
 
             throw new ValueFormatException(); // missing unit
         }
