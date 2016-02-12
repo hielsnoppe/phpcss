@@ -15,7 +15,7 @@ class Hue {
         $this->value = $value;
     }
 
-    public static function toRGB ($m1, $m2) {
+    public function toRGB ($m1, $m2) {
 
         if ($this->value < 0) {
 
