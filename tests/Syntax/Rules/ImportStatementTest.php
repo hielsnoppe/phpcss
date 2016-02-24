@@ -2,7 +2,7 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
-use \NielsHoppe\PHPCSS\Syntax\Statements\ImportStatement as ImportStatement;
+use \NielsHoppe\PHPCSS\Syntax\Rules\ImportStatement;
 
 class ImportStatementTest extends \PHPUnit_Framework_TestCase {
 

@@ -10,10 +10,16 @@ use NielsHoppe\PHPCSS\Syntax\DeclarationList;
 
 class StyleRule extends QualifiedRule {
 
-    public function __construct ($selector = null) {
+    public function __construct ($selector = null, DeclarationList $declarations = null) {
 
         $this->prelude = $selector;
-        $this->block = new DeclarationList();
+
+        if (is_null($declarations)) {
+
+            $declarations = new DeclarationList();
+        }
+
+        $this->block = $declarations;
     }
 
     /**
@@ -61,9 +67,9 @@ class StyleRule extends QualifiedRule {
 
         $str = strval($this->block);
 
-        if ($this->selector) {
+        if ($this->prelude) {
 
-            $str = sprintf('%s { %s }', $this->selector, $str);
+            $str = sprintf('%s { %s }', $this->prelude, $str);
         }
 
         return $str;

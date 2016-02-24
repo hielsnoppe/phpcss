@@ -2,6 +2,7 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
+use \NielsHoppe\PHPCSS\Syntax\Declaration;
 use \NielsHoppe\PHPCSS\Parser\Parser;
 use \NielsHoppe\PHPCSS\Syntax\Rules\StyleRule;
 

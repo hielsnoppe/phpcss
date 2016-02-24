@@ -2,6 +2,8 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Rules;
 
+use NielsHoppe\PHPCSS\Syntax\Rule;
+
 /**
  * @see https://www.w3.org/TR/CSS21/syndata.html#at-rules
  */
