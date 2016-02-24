@@ -5,38 +5,38 @@ namespace NielsHoppe\PHPCSS\Syntax;
 /**
  */
 
-class Stylesheet {
+class Document implements Item {
 
     /**
-     * @var ImportStatement @import (special AtRule)
-     * @var [Ruleset|AtRule]    Ruleset or AtRule (except @import)
+     * @var ImportRule @import (special AtRule)
+     * @var [StyleRule|AtRule]    StyleRule or AtRule (except @import)
      */
 
     private $imports;
-    private $statements;
+    private $rules;
 
     public function __construct () {
 
         $this->imports = array();
-        $this->statements = array();
+        $this->rules = array();
     }
 
     /**
-     * @param ImportStatement   $import
+     * @param ImportRule   $import
      */
 
-    public function addImport (ImportStatement $import) {
+    public function addImport (ImportRule $import) {
 
         array_push($this->imports, $import);
     }
 
     /**
-     * @param Statement     $statement
+     * @param Rule     $rule
      */
 
-    public function addStatement ($statement) {
+    public function addRule ($rule) {
 
-        array_push($this->statements, $statement);
+        array_push($this->rules, $rule);
     }
 
     /**
@@ -53,7 +53,7 @@ class Stylesheet {
         $parts = array();
 
         array_push($parts, implode("\n", array_map($toStringFunc, $this->imports)));
-        array_push($parts, implode("\n", array_map($toStringFunc, $this->statements)));
+        array_push($parts, implode("\n", array_map($toStringFunc, $this->rules)));
 
         return implode("\n", array_filter($parts));
     }

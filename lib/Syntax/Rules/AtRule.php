@@ -1,12 +1,12 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Syntax\Statements;
+namespace NielsHoppe\PHPCSS\Syntax\Rules;
 
 /**
  * @see https://www.w3.org/TR/CSS21/syndata.html#at-rules
  */
 
-class AtRuleStatement extends Statement {
+class AtRule implements Rule {
 
     /**
      * @var string          $keyword
