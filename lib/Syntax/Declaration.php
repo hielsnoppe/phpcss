@@ -1,12 +1,14 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Syntax\Statements;
+namespace NielsHoppe\PHPCSS\Syntax;
+
+use NielsHoppe\PHPCSS\Syntax\Item;
 
 /**
- * @see https://www.w3.org/TR/CSS21/syndata.html#declaration
+ * @see https://www.w3.org/TR/css-syntax-3/#declaration
  */
 
-class Declaration {
+class Declaration implements Item {
 
     /**
      * @var string $property  The declared Property
@@ -31,30 +33,6 @@ class Declaration {
 
         $this->property = $property;
         $this->value = $value;
-    }
-
-    /**
-     * Parse a Declaration from a string
-     *
-     * @param string      $string
-     * @return Declaration
-     */
-
-    public static function parse ($string) {
-
-        $parts = explode(':', $string);
-
-        if (count($parts) !== 2) {
-
-            throw new \Exception('Invalid Declaration \'' . $string . '\'.');
-        }
-
-        $property = trim($parts[0]);
-        $value = trim($parts[1]);
-
-        $result = new Declaration($property, $value);
-
-        return $result;
     }
 
     /**

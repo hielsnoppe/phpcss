@@ -2,20 +2,20 @@
 
 namespace NielsHoppe\PHPCSS\Syntax;
 
-use \NielsHoppe\PHPCSS\Syntax\Stylesheet;
-use \NielsHoppe\PHPCSS\Syntax\Statements\Ruleset;
+use \NielsHoppe\PHPCSS\Syntax\Document;
+use \NielsHoppe\PHPCSS\Syntax\StyleRule;
 use \NielsHoppe\PHPCSS\Values\ColorValue;
 
-class StylesheetTest extends \PHPUnit_Framework_TestCase {
+class DocumentTest extends \PHPUnit_Framework_TestCase {
 
     public function testMain () {
 
-        $style = new Stylesheet();
+        $style = new Document();
 
-        $html = new Ruleset('html');
+        $html = new StyleRule('html');
         $html->createDeclaration('color', new ColorValue('#00f'));
 
-        $body = new Ruleset('body');
+        $body = new StyleRule('body');
         $body->createDeclaration('background-color', new ColorValue('rgba(128, 255 , 0, 0.5)'));
         $body->createDeclaration('padding-top', '10px');
 

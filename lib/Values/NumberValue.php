@@ -18,4 +18,9 @@ class NumberValue implements Value {
 
         return '';
     }
+
+    public static function parse ($value) {
+
+        return new NumberValue($value);
+    }
 }

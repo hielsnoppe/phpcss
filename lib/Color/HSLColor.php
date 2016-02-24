@@ -13,16 +13,16 @@ class HSLColor {
      * @var int         $hue
      * @var int         $saturation
      * @var int         $lightness
-     * @var int|null    $alpha      Alpha value between 0.0 and 1.0
+     * @var float|null  $alpha      Alpha value between 0.0 and 1.0
      */
 
     private $hue, $saturation, $lightness, $alpha;
 
     /**
-     * @param int       $hue
-     * @param int       $saturation
-     * @param int       $lightness
-     * @param int|null  $alpha      Alpha value between 0.0 and 1.0
+     * @param int           $hue
+     * @param int           $saturation
+     * @param int           $lightness
+     * @param float|null    $alpha      Alpha value between 0.0 and 1.0
      */
 
     public function __construct ($hue, $saturation, $lightness, $alpha = null) {
