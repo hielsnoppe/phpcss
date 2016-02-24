@@ -3,7 +3,7 @@
 namespace NielsHoppe\PHPCSS\Syntax;
 
 use \NielsHoppe\PHPCSS\Syntax\Document;
-use \NielsHoppe\PHPCSS\Syntax\StyleRule;
+use \NielsHoppe\PHPCSS\Syntax\Rules\StyleRule;
 use \NielsHoppe\PHPCSS\Values\ColorValue;
 
 class DocumentTest extends \PHPUnit_Framework_TestCase {
@@ -19,8 +19,8 @@ class DocumentTest extends \PHPUnit_Framework_TestCase {
         $body->createDeclaration('background-color', new ColorValue('rgba(128, 255 , 0, 0.5)'));
         $body->createDeclaration('padding-top', '10px');
 
-        $style->addStatement($html);
-        $style->addStatement($body);
+        $style->addRule($html);
+        $style->addRule($body);
 
         $expected = <<<CSS
 html { color: #0000ff }

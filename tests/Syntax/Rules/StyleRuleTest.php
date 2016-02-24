@@ -2,6 +2,7 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Statements;
 
+use \NielsHoppe\PHPCSS\Parser\Parser;
 use \NielsHoppe\PHPCSS\Syntax\StyleRule;
 
 class StyleRuleTest extends \PHPUnit_Framework_TestCase {
