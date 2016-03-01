@@ -2,6 +2,9 @@
 
 namespace NielsHoppe\PHPCSS\Syntax;
 
+use \NielsHoppe\PHPCSS\Syntax\Rule;
+use \NielsHoppe\PHPCSS\Syntax\Rules\ImportRule;
+
 /**
  */
 
@@ -34,7 +37,7 @@ class Document implements Item {
      * @param Rule     $rule
      */
 
-    public function addRule ($rule) {
+    public function addRule (Rule $rule) {
 
         array_push($this->rules, $rule);
     }
