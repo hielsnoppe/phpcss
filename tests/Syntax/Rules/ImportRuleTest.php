@@ -1,10 +1,10 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Syntax\Statements;
+namespace NielsHoppe\PHPCSS\Syntax\Rules;
 
-use \NielsHoppe\PHPCSS\Syntax\Rules\ImportStatement;
+use \NielsHoppe\PHPCSS\Syntax\Rules\ImportRule;
 
-class ImportStatementTest extends \PHPUnit_Framework_TestCase {
+class ImportRuleTest extends \PHPUnit_Framework_TestCase {
 
     /**
      * @dataProvider    validInputForCreation
@@ -12,9 +12,9 @@ class ImportStatementTest extends \PHPUnit_Framework_TestCase {
 
     public function testCanBeCreatedFromValidInput ($url, $media) {
 
-        $style = new ImportStatement($url, $media);
+        $style = new ImportRule($url, $media);
 
-        $this->assertInstanceOf(ImportStatement::class, $style);
+        $this->assertInstanceOf(ImportRule::class, $style);
     }
 
     /**
@@ -23,7 +23,7 @@ class ImportStatementTest extends \PHPUnit_Framework_TestCase {
 
     public function testCanBeSerialized ($url, $media, $css) {
 
-        $style = new ImportStatement($url, $media);
+        $style = new ImportRule($url, $media);
 
         $this->assertEquals($css, $style->__toString());
     }
