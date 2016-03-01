@@ -5,13 +5,13 @@ namespace NielsHoppe\PHPCSS\Syntax\Rules;
 use NielsHoppe\PHPCSS\Syntax\Rules\AtRule;
 
 /**
- * @see https://www.w3.org/TR/CSS21/cascade.html#at-import
+ * @see https://www.w3.org/TR/css-syntax-3/#at-rule
  */
 
-class ImportStatement extends AtRule {
+class ImportRule extends AtRule {
 
     /**
-     * Construct an ImportStatement from a URL and optionally media types
+     * Construct an ImportRule from a URL and optionally media types
      *
      * @param string $url
      * @param string|[string] $media
