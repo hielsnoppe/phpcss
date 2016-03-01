@@ -15,32 +15,19 @@ class ImportRule extends AtRule {
     /**
      * Construct an ImportRule from a URL and optionally media types
      *
-     * @param string            $url
-     * @param string|string[]   $media
+     * @param string    $url
+     * @param string    $media
      */
 
-    public function __construct ($url, $media = null) {
+    public function __construct ($url, $media = '') {
 
         $this->keyword = 'import';
-        $this->content = sprintf('url(%s)', $url);
 
-        if (isset($media)) {
+        if ($media == '' || $media == 'all') {
 
-            if (!is_array($media)) {
-
-                $media = array($media);
-            }
-        }
-        else {
-
-            $this->media = array('all');
+            $media = 'all';
         }
 
-        if (!in_array('all', $media)) {
-
-            $this->content .= ' ' . implode(', ', $media);
-        }
-
-        $this->content .= ';';
+        $this->content = sprintf('url(%s) %s;', $url, $media);
     }
 }
