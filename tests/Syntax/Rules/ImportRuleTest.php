@@ -32,19 +32,16 @@ class ImportRuleTest extends \PHPUnit_Framework_TestCase {
 
         return array(
 
+            array('https://fonts.googleapis.com/css?family=Open+Sans', null,
+                '@import url(https://fonts.googleapis.com/css?family=Open+Sans) all;'),
+
             array('https://fonts.googleapis.com/css?family=Open+Sans', 'all',
-                '@import url(https://fonts.googleapis.com/css?family=Open+Sans);'),
+                '@import url(https://fonts.googleapis.com/css?family=Open+Sans) all;'),
 
             array('https://fonts.googleapis.com/css?family=Open+Sans', 'print',
                 '@import url(https://fonts.googleapis.com/css?family=Open+Sans) print;'),
 
-            array('https://fonts.googleapis.com/css?family=Open+Sans', array('all'),
-                '@import url(https://fonts.googleapis.com/css?family=Open+Sans);'),
-
-            array('https://fonts.googleapis.com/css?family=Open+Sans', array('print'),
-                '@import url(https://fonts.googleapis.com/css?family=Open+Sans) print;'),
-
-            array('https://fonts.googleapis.com/css?family=Open+Sans', array('screen', 'print'),
+            array('https://fonts.googleapis.com/css?family=Open+Sans', 'screen, print',
                 '@import url(https://fonts.googleapis.com/css?family=Open+Sans) screen, print;')
         );
     }
