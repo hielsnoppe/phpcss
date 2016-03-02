@@ -15,8 +15,8 @@ class ImportRule extends AtRule {
     /**
      * Construct an ImportRule from a URL and optionally media types
      *
-     * @param string    $url
-     * @param string    $media
+     * @param string $url
+     * @param string $media
      */
 
     public function __construct ($url, $media = '') {
@@ -25,9 +25,9 @@ class ImportRule extends AtRule {
 
         if ($media == '' || $media == 'all') {
 
-            $media = 'all';
+            $media = '';
         }
 
-        $this->content = sprintf('url(%s) %s;', $url, $media);
+        $this->content = trim(sprintf('url("%s") %s', $url, $media)) . ';';
     }
 }

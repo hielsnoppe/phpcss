@@ -27,7 +27,7 @@ class DocumentTest extends \PHPUnit_Framework_TestCase {
         $style->addRule($body);
 
         $expected = <<<CSS
-@import url(https://fonts.googleapis.com/css?family=Open+Sans) all;
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
 html { color: #0000ff }
 body { background-color: #80ff00; padding-top: 10px }
 CSS;
