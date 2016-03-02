@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * interface NielsHoppe\PHPCSS\Syntax\Item
+ */
+
 namespace NielsHoppe\PHPCSS\Syntax;
 
 /**

@@ -1,22 +1,35 @@
 <?php
 
+/**
+ * class NielsHoppe\PHPCSS\Syntax\Document
+ */
+
 namespace NielsHoppe\PHPCSS\Syntax;
 
 use \NielsHoppe\PHPCSS\Syntax\Rule;
 use \NielsHoppe\PHPCSS\Syntax\Rules\ImportRule;
 
 /**
+ * Document
  */
 
 class Document implements Item {
 
     /**
-     * @var ImportRule @import (special AtRule)
-     * @var [StyleRule|AtRule]    StyleRule or AtRule (except @import)
+     * @var ImportRule[] $imports  @import (special AtRule)
      */
 
     private $imports;
+
+    /**
+     * @var [StyleRule|AtRule][] $rules  StyleRule or AtRule (except @import)
+     */
+
     private $rules;
+
+    /**
+     * Constructs a new Document
+     */
 
     public function __construct () {
 
@@ -25,7 +38,9 @@ class Document implements Item {
     }
 
     /**
-     * @param ImportRule   $import
+     * Add a new ImportRule to the Document
+     *
+     * @param ImportRule $import
      */
 
     public function addImport (ImportRule $import) {
@@ -34,7 +49,9 @@ class Document implements Item {
     }
 
     /**
-     * @param Rule     $rule
+     * Add a new Rule to the Document
+     *
+     * @param Rule $rule
      */
 
     public function addRule (Rule $rule) {
@@ -43,6 +60,8 @@ class Document implements Item {
     }
 
     /**
+     * Return a string representation
+     *
      * @return string
      */
 

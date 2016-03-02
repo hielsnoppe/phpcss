@@ -1,10 +1,15 @@
 <?php
 
+/**
+ * class NielsHoppe\PHPCSS\Syntax\Declaration
+ */
+
 namespace NielsHoppe\PHPCSS\Syntax;
 
 use NielsHoppe\PHPCSS\Syntax\Item;
 
 /**
+ * Declaration
  * @see https://www.w3.org/TR/css-syntax-3/#declaration
  */
 

@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * class NielsHoppe\PHPCSS\Configuration
+ */
+
 namespace NielsHoppe\PHPCSS;
 
 /**
