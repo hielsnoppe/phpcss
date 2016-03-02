@@ -1,5 +1,9 @@
 <?php
 
+/**
+ * class NielsHoppe\PHPCSS\Values\StringValue
+ */
+
 namespace NielsHoppe\PHPCSS\Values;
 
 /**

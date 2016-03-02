@@ -1,14 +1,26 @@
 <?php
 
+/**
+ * class NielsHoppe\PHPCSS\Syntax\Rules\StyleRule
+ */
+
 namespace NielsHoppe\PHPCSS\Syntax\Rules;
 
 use NielsHoppe\PHPCSS\Syntax\DeclarationList;
 
 /**
+ * StyleRule
  * @see https://www.w3.org/TR/css-syntax-3/#style-rule
  */
 
 class StyleRule extends QualifiedRule {
+
+    /**
+     * Construct a new StyleRule
+     *
+     * @param string $selector
+     * @param DeclarationList $declarations
+     */
 
     public function __construct ($selector = null, DeclarationList $declarations = null) {
 

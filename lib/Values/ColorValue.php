@@ -1,12 +1,16 @@
 <?php
 
+/**
+ * class NielsHoppe\PHPCSS\Values\ColorValue
+ */
+
 namespace NielsHoppe\PHPCSS\Values;
 
 use NielsHoppe\PHPCSS\Color\RGBColor as RGBColor;
 use NielsHoppe\PHPCSS\Color\HSLColor as HSLColor;
 
 /**
- *
+ * ColorValue
  */
 
 class ColorValue implements Value {
@@ -304,7 +308,7 @@ class ColorValue implements Value {
             case 'hsl':
             case 'hsla':
 
-                // TODO
+                // TODO Implement
 
                 break 2;
             }

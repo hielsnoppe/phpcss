@@ -1,15 +1,20 @@
 <?php
 
+/**
+ * class NielsHoppe\PHPCSS\Syntax\DeclarationList
+ */
+
 namespace NielsHoppe\PHPCSS\Syntax;
 
 /**
+ * DeclarationList
  * @see https://www.w3.org/TR/css-syntax-3/#declaration
  */
 
 class DeclarationList {
 
     /**
-     * @var string $declarations
+     * @var string $declarations  A list of declarations
      */
 
     private $declarations;
@@ -77,7 +82,6 @@ class DeclarationList {
 
     /**
      * Return string representation
-     * @todo Implement
      *
      * @return string
      */
