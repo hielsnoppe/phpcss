@@ -17,7 +17,7 @@ class Configuration {
         'require_compatible_2_1' => false
     );
 
-    public static get ($key) {
+    public static function get ($key) {
 
         if (array_key_exists($key, self::$settings)) {
 
@@ -27,7 +27,7 @@ class Configuration {
         return null;
     }
 
-    public static set ($key, $value) {
+    public static function set ($key, $value) {
 
         if (array_key_exists($key, self::$settings)) {
 

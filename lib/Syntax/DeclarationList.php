@@ -14,7 +14,7 @@ namespace NielsHoppe\PHPCSS\Syntax;
 class DeclarationList {
 
     /**
-     * @var string $declarations  A list of declarations
+     * @var Declaration[] $declarations  A list of declarations
      */
 
     private $declarations;
@@ -22,7 +22,7 @@ class DeclarationList {
     /**
      * Construct a DeclarationList from an array of Declarations
      *
-     * @param [Declaraton] $declarations
+     * @param Declaration[] $declarations
      */
 
     public function __construct ($declarations = array()) {
