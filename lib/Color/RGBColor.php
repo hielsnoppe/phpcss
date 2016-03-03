@@ -11,19 +11,34 @@ use NielsHoppe\PHPCSS\Util;
 class RGBColor {
 
     /**
-     * @var int         $red    The amount of red
-     * @var int         $green  The amount of green
-     * @var int         $blue   The amount of blue
-     * @var float|null  $alpha  Alpha value between 0.0 and 1.0
+     * @var int $red  The amount of red
      */
 
-    private $red, $green, $blue, $alpha;
+    private $red;
 
     /**
-     * @param int           $red    The amount of red
-     * @param int           $green  The amount of green
-     * @param int           $blue   The amount of blue
-     * @param float|null    $alpha  Alpha value between 0.0 and 1.0
+     * @var int $green  The amount of green
+     */
+
+    private $green;
+
+    /**
+     * @var int $blue  The amount of blue
+     */
+
+    private $blue;
+
+    /**
+     * @var float|null $alpha  Alpha value between 0.0 and 1.0
+     */
+
+    private $alpha;
+
+    /**
+     * @param int $red  The amount of red
+     * @param int $green  The amount of green
+     * @param int $blue  The amount of blue
+     * @param float|null $alpha  Alpha value between 0.0 and 1.0
      */
 
     public function __construct ($red, $green, $blue, $alpha = null) {

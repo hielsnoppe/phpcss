@@ -22,7 +22,7 @@ class Document implements Item {
     private $imports;
 
     /**
-     * @var [StyleRule|AtRule][] $rules  StyleRule or AtRule (except @import)
+     * @var Rule[] $rules  StyleRule or AtRule (except @import)
      */
 
     private $rules;

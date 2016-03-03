@@ -57,8 +57,8 @@ class DeclarationList {
     /**
      * Get the declarations in this list
      *
-     * @param [string] $filter
-     * @return [Declaration]
+     * @param string[] $filter
+     * @return Declaration[]
      */
 
     public function getDeclarations ($filter = array()) {

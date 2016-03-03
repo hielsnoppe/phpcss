@@ -22,7 +22,7 @@ class Declaration implements Item {
     private $property;
 
     /**
-     * @var Values\Value $value  The declared Value
+     * @var string $value  The declared Value
      */
 
     private $value;
@@ -36,8 +36,9 @@ class Declaration implements Item {
     /**
      * Construct a Declaration from a Property and a Value
      *
-     * @param Property    $property
-     * @param Value       $value
+     * @param string $property  TODO Restrict to Property as soon as implemented
+     * @param string $value  TODO Restrict to Value as soon as implemented
+     * @param bool $important  State of the !important flag
      */
 
     public function __construct ($property, $value, $important = false) {
