@@ -1,4 +1,4 @@
-# phpcss
+# PHPCSS
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/?branch=master)
