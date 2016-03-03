@@ -15,11 +15,11 @@ class Util {
     /**
      * Clips a given value to a range specified by min and max
      *
-     * @param int $min
-     * @param int $max
-     * @param int $value
+     * @param int|float $min
+     * @param int|float $max
+     * @param int|float $value
      *
-     * @return int
+     * @return int|float
      */
 
     public static function clip ($min, $max, $value) {
