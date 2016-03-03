@@ -293,6 +293,8 @@ class ColorValue implements Value {
             case 'rgb':
 
                 $matches['alpha'] = null;
+                
+                // break intentionally omitted
 
             case 'rgba':
 

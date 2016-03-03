@@ -22,7 +22,7 @@ class Declaration implements Item {
     private $property;
 
     /**
-     * @var Values\Value $value  The declared Value
+     * @var string $value  The declared Value
      */
 
     private $value;
