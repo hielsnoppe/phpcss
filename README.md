@@ -1,6 +1,7 @@
 # phpcss
 
 [![Build Status](https://travis-ci.org/hielsnoppe/phpcss.svg?branch=master)](https://travis-ci.org/hielsnoppe/phpcss)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/?branch=master)
 
 This is a PHP library to easily create valid CSS.
 
@@ -20,7 +21,7 @@ To install this library via [Composer](http://getcomposer.org) add the following
         }
     ],
     "require": {
-        "hielsnoppe/phpcss": "master"
+        "hielsnoppe/phpcss": "0.1.5"
     }
 }
 ```
@@ -32,16 +33,16 @@ Given that you have the Composer autoloader in place, you can use PHPCSS as foll
 ```php
 <?php
 
-use \NielsHoppe\PHPCSS\Stylesheet;
-use \NielsHoppe\PHPCSS\Ruleset;
+use \NielsHoppe\PHPCSS\Document;
+use \NielsHoppe\PHPCSS\StyleRule;
 use \NielsHoppe\PHPCSS\Values\ColorValue;
 
-$style = new Stylesheet();
+$style = new Document();
 
-$html = new Ruleset('html');
+$html = new StyleRule('html');
 $html->createDeclaration('color', new ColorValue('#00f'));
 
-$body = new Ruleset('body');
+$body = new StyleRule('body');
 $body->createDeclaration('background-color', new ColorValue('rgba(128, 255 , 0, 0.5)'));
 $body->createDeclaration('padding-top', '10px');
 
