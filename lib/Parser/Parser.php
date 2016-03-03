@@ -84,8 +84,9 @@ class Parser {
 
         $property = trim($parts[0]);
         $value = trim($parts[1]);
+        $important = false; // TODO
 
-        $result = new Declaration($property, $value);
+        $result = new Declaration($property, $value, $important);
 
         return $result;
     }

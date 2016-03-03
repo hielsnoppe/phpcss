@@ -50,11 +50,12 @@ class StyleRule extends QualifiedRule {
      *
      * @param string $property
      * @param string $value
+     * @param bool $important
      */
 
-    public function createDeclaration ($property, $value) {
+    public function createDeclaration ($property, $value, $important = false) {
 
-        $this->block->createDeclaration($property, $value);
+        $this->block->createDeclaration($property, $value, $important);
     }
 
     /**
