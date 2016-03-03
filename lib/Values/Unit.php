@@ -2,7 +2,20 @@
 
 namespace NielsHoppe\PHPCSS\Values;
 
+/**
+ *
+ */
+
 class Unit {
+
+    /**
+     * Parse a unit from a string
+     *
+     * @param string $unit
+     * @return Unit
+     *
+     * @throws InvalidUnitException
+     */
 
     public static function parse ($unit) {
 
