@@ -5,11 +5,15 @@
 
 This is a PHP library to easily create valid CSS.
 
-It is planned to support converting CSS selectors to XPath aswell as writing rules from stylesheets inline.
+## Current state and roadmap
+
+This library is currently under active development.
+The next milestone is a stable release (version 1.0.0) with a reduced feature set.
+Later it is planned to support converting CSS selectors to XPath aswell as writing rules from stylesheets inline.
 
 ## Installation
 
-To install this library via [Composer](http://getcomposer.org) add the following to your `composer.json` and then run `composer update`:
+To install this library via [Composer](https://getcomposer.org/) add the following to your `composer.json` and then run `composer update`:
 
 ```json
 {
@@ -25,6 +29,8 @@ To install this library via [Composer](http://getcomposer.org) add the following
     }
 }
 ```
+
+This library will be available on [Packagist](https://packagist.org/) as soon as version 1.0.0 is released.
 
 ## Usage
 
@@ -54,7 +60,7 @@ echo($style);
 
 # Documentation and testing
 
-You can create documentation with phpDocumentor as follows:
+You can create documentation with [phpDocumentor](https://www.phpdoc.org/) as follows:
 
 ```
 $ composer docs
@@ -62,7 +68,7 @@ $ composer docs
 
 This will create extensive HTML documentation in the `docs/` folder.
 
-You can run the PHPUnit tests as follows:
+You can run the [PHPUnit](https://phpunit.de/) tests as follows:
 
 ```
 $ composer test
