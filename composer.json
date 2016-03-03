@@ -22,6 +22,7 @@
         "issues": "https://github.com/hielsnoppe/phpcss/issues"
     },
     "require-dev": {
+        "php": ">=5.5.9",
         "phpunit/phpunit": "4.8.*",
         "phpdocumentor/phpdocumentor": "2.*"
     },
