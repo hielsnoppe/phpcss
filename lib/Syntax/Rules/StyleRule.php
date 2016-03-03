@@ -80,7 +80,7 @@ class StyleRule extends QualifiedRule {
 
         $str = strval($this->block);
 
-        if ($this->prelude) {
+        if ($this->prelude !== null) {
 
             $str = sprintf('%s { %s }', $this->prelude, $str);
         }

@@ -12,10 +12,21 @@ namespace NielsHoppe\PHPCSS;
 
 class Configuration {
 
+    /**
+     * @var mixed[] $settings  An array of configuration keys and values
+     */
+
     private static $settings = array(
 
         'require_compatible_2_1' => false
     );
+
+    /**
+     * Return a configuration key
+     *
+     * @param string $key
+     * @return mixed
+     */
 
     public static function get ($key) {
 
@@ -26,6 +37,13 @@ class Configuration {
 
         return null;
     }
+
+    /**
+     * Set a configuration key to a given value
+     *
+     * @param string $key
+     * @param mixed $value
+     */
 
     public static function set ($key, $value) {
 
