@@ -96,7 +96,12 @@ class ParserTest extends \PHPUnit_Framework_TestCase {
             array(
                 'color: #ff0000',
                 'color: #ff0000'
-            )
+            ),
+
+            /*array(
+                'font-size: 12px !important',
+                'font-size: 12px !important'
+            )*/
         );
     }
 

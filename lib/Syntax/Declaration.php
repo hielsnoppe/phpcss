@@ -28,16 +28,23 @@ class Declaration implements Item {
     private $value;
 
     /**
+     * @var bool $important  The important flag
+     */
+
+    private $important;
+
+    /**
      * Construct a Declaration from a Property and a Value
      *
      * @param Property    $property
      * @param Value       $value
      */
 
-    public function __construct ($property, $value) {
+    public function __construct ($property, $value, $important = false) {
 
         $this->property = $property;
         $this->value = $value;
+        $this->important = $important;
     }
 
     /**
@@ -63,6 +70,17 @@ class Declaration implements Item {
     }
 
     /**
+     * Return state of important flag of this Declaration
+     *
+     * @return bool
+     */
+
+    public function isImportant () {
+
+        return $this->important;
+    }
+
+    /**
      * Return string representation
      *
      * @return string
@@ -72,6 +90,6 @@ class Declaration implements Item {
 
         $value = is_object($this->value) ? $this->value->__toString() : $this->value;
 
-        return sprintf('%s: %s', $this->property, $value);
+        return trim(sprintf('%s: %s %s', $this->property, $value, $this->important ? '!important' : ''));
     }
 }

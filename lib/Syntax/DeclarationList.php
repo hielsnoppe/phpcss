@@ -46,11 +46,12 @@ class DeclarationList {
      *
      * @param string $property
      * @param string $value
+     * @param bool $important
      */
 
-    public function createDeclaration ($property, $value) {
+    public function createDeclaration ($property, $value, $important = false) {
 
-        $this->addDeclaration(new Declaration($property, $value));
+        $this->addDeclaration(new Declaration($property, $value, $important));
     }
 
     /**
