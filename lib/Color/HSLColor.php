@@ -10,19 +10,34 @@ namespace NielsHoppe\PHPCSS\Color;
 class HSLColor {
 
     /**
-     * @var int         $hue
-     * @var int         $saturation
-     * @var int         $lightness
-     * @var int|null    $alpha      Alpha value between 0.0 and 1.0
+     * @var int $hue
      */
 
-    private $hue, $saturation, $lightness, $alpha;
+    private $hue;
 
     /**
-     * @param int       $hue
-     * @param int       $saturation
-     * @param int       $lightness
-     * @param int|null  $alpha      Alpha value between 0.0 and 1.0
+     * @var int $saturation
+     */
+
+    private $saturation;
+
+    /**
+     * @var int $lightness
+     */
+
+    private $lightness;
+
+    /**
+     * @var float|null $alpha  Alpha value between 0.0 and 1.0
+     */
+
+    private $alpha;
+
+    /**
+     * @param int $hue
+     * @param int $saturation
+     * @param int $lightness
+     * @param float|null $alpha  Alpha value between 0.0 and 1.0
      */
 
     public function __construct ($hue, $saturation, $lightness, $alpha = null) {

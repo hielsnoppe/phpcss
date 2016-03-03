@@ -1,20 +1,37 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Syntax\Statements;
+/**
+ * class NielsHoppe\PHPCSS\Syntax\Rules\AtRule
+ */
 
-class AtRuleStatement extends Statement {
+namespace NielsHoppe\PHPCSS\Syntax\Rules;
+
+use NielsHoppe\PHPCSS\Syntax\Rule;
+
+/**
+ * AtRule
+ * @see https://www.w3.org/TR/css3-syntax/#at-rule
+ */
+
+class AtRule implements Rule {
 
     /**
-     * @var string          $keyword
-     * @var string|Block    $content
+     * @var string $keyword  Keyword
      */
 
     protected $keyword;
+
+    /**
+     * @var string|Block $content  Content
+     */
+
     protected $content;
 
     /**
-     * @param string    $keyword
-     * @param string    $content
+     * Construct a new AtRule
+     *
+     * @param string $keyword
+     * @param string $content
      */
 
     public function __construct ($keyword, $content) {
@@ -24,6 +41,8 @@ class AtRuleStatement extends Statement {
     }
 
     /**
+     * Return string representation
+     *
      * @return string
      */
 

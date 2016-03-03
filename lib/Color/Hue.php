@@ -5,7 +5,7 @@ namespace NielsHoppe\PHPCSS\Color;
 /**
  * @see https://en.wikipedia.org/wiki/Hue
  */
- 
+
 class Hue {
 
     private $value;
@@ -15,7 +15,7 @@ class Hue {
         $this->value = $value;
     }
 
-    public static toRGB ($m1, $m2) {
+    public function toRGB ($m1, $m2) {
 
         if ($this->value < 0) {
 
