@@ -16,6 +16,12 @@ use NielsHoppe\PHPCSS\Syntax\Rules\AtRule;
 class ImportRule extends AtRule {
 
     /**
+     * @var string $keyword  Keyword
+     */
+
+    protected static $keyword = 'import';
+
+    /**
      * @var string $media  A media description
      */
 
@@ -30,13 +36,11 @@ class ImportRule extends AtRule {
 
     public function __construct ($url, $media = '') {
 
-        $this->keyword = 'import';
+        $this->values = array(sprintf('url("%s")', $url));
 
-        if ($media == '' || $media == 'all') {
+        if ($media !== null && $media !== '' && $media !== 'all') {
 
-            $media = '';
+            array_push($this->values, $media);
         }
-
-        $this->content = trim(sprintf('url("%s") %s', $url, $media)) . ';';
     }
 }

@@ -13,31 +13,37 @@ use NielsHoppe\PHPCSS\Syntax\Rule;
  * @see https://www.w3.org/TR/css3-syntax/#at-rule
  */
 
-class AtRule implements Rule {
+abstract class AtRule implements Rule {
 
     /**
      * @var string $keyword  Keyword
      */
 
-    protected $keyword;
+    protected static $keyword;
 
     /**
-     * @var string|Block $content  Content
+     * @var mixed[] $values  Component values
      */
 
-    protected $content;
+    protected $values;
+
+    /**
+     * @var mixed $block  Block
+     */
+
+    protected $block;
 
     /**
      * Construct a new AtRule
      *
-     * @param string $keyword
-     * @param string $content
+     * @param mixed[] $values  A list of component values
+     * @param mixed $block  A block
      */
 
-    public function __construct ($keyword, $content) {
+    public function __construct ($values = array(), $block = null) {
 
-        $this->keyword = $keyword;
-        $this->content = $content;
+        $this->values = $values;
+        $this->block = $block;
     }
 
     /**
@@ -48,16 +54,14 @@ class AtRule implements Rule {
 
     public function __toString () {
 
-        if (is_string($this->content)) {
+        if ($this->block === null) {
 
-            $content = $this->content;
+            $result = sprintf('@%s %s;', static::$keyword, implode(' ', array_map('strval', $this->values)));
         }
         else {
 
-            $content = $this->content->__toString();
+            $result = sprintf('@%s %s %s', static::$keyword, implode(' ', array_map('strval', $this->values)), $this->block);
         }
-
-        $result = sprintf('@%s %s', $this->keyword, $content);
 
         return $result;
     }
