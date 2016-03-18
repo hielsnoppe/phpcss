@@ -31,6 +31,7 @@ class ImportRule extends AtRule {
     public function __construct ($url, $media = '') {
 
         $this->keyword = 'import';
+        $this->media = '';
 
         if ($media == '' || $media == 'all') {
 
