@@ -2,10 +2,7 @@
 
 namespace NielsHoppe\PHPCSS\Properties\Values;
 
-class KeywordValue {
-
-    const IDENT_AUTO = 'auto';
-    const IDENT_INHERIT = 'inherit';
+class PercentageValue {
 
     protected $value;
 
@@ -17,6 +14,6 @@ class KeywordValue {
 
     public function __toString () {
 
-        return sprintf('%s', $this->value);
+        return sprintf('%d\%', $this->value);
     }
 }

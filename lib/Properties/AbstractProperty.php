@@ -4,7 +4,8 @@ namespace NielsHoppe\PHPCSS\Properties;
 
 abstract class AbstractProperty implements Property {
 
-    public static $name = '';
+    const $name = '';
+    
     public static $acceptedValueTypes = array();
     public static $acceptedKeywords = array();
 

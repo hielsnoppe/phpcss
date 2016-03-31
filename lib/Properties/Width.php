@@ -4,9 +4,9 @@ namespace NielsHoppe\PHPCSS\Properties;
 
 use \NielsHoppe\PHP\Properties\Values\KeywordValue;
 
-class WidthProperty extends AbstractProperty {
+class Width extends AbstractProperty {
 
-    public static $name = 'width';
+    const $name = 'width';
 
     public static $acceptedValueTypes = array(
         'LengthValue',
