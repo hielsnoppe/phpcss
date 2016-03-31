@@ -1,44 +1,45 @@
 <?php
 
 /**
- * class NielsHoppe\PHPCSS\Syntax\DeclarationList
+ * class NielsHoppe\PHPCSS\Syntax\DeclarationSet
  */
 
 namespace NielsHoppe\PHPCSS\Syntax;
 
 /**
- * DeclarationList
- * @see https://www.w3.org/TR/css-syntax-3/#declaration
+ * DeclarationSet
+ * This is a utility without an explicit counterpart from the specification
  */
 
-class DeclarationList {
+class DeclarationSet extends DeclarationList {
 
     /**
-     * @var Declaration[] $declarations  A list of declarations
-     */
-
-    protected $declarations;
-
-    /**
-     * Construct a DeclarationList from an array of Declarations
+     * Construct a DeclarationSet from an array of Declarations
      *
      * @param Declaration[] $declarations
      */
 
     public function __construct ($declarations = array()) {
 
-        $this->declarations = $declarations;
+        $this->declarations = array();
+
+        foreach ($declaration as $declaration) {
+
+            $this->addDeclaration($declaration);
+        }
     }
 
     /**
-     * Adds a Declaration to this DeclarationList
+     * Adds a Declaration to this DeclarationSet
      *
      * @param Declaration $declaration
      */
 
     public function addDeclaration (Declaration $declaration) {
 
-        array_push($this->declarations, $declaration);
+        $property = $declaration->getProperty();
+
+        $this->declarations[$property] = $declaration;
     }
 
     /**
