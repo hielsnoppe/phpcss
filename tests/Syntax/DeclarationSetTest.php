@@ -28,6 +28,17 @@ class DeclarationSetTest extends \PHPUnit_Framework_TestCase {
         $this->assertEquals($expected, strval($declaration));
     }
 
+    public function testScenario () {
+
+        $obj = new DeclarationSet();
+
+        $obj->addDeclaration(new Declaration('margin-top', '10px', false));
+        $obj->addDeclaration(new Declaration('margin-top', '20px', true));
+        $obj->createDeclaration('margin-bottom', '15px', false);
+
+        echo(strval($obj));
+    }
+
     public function validInputForCreation () {
 
         return array(

@@ -23,7 +23,7 @@ class DeclarationSet extends DeclarationList {
 
         $this->declarations = array();
 
-        foreach ($declaration as $declaration) {
+        foreach ($declarations as $declaration) {
 
             $this->addDeclaration($declaration);
         }
@@ -43,7 +43,7 @@ class DeclarationSet extends DeclarationList {
     }
 
     /**
-     * Shorthand for creating and adding a declaration to this DeclarationList
+     * Shorthand for creating and adding a declaration to this DeclarationSet
      *
      * @param string $property
      * @param string $value
@@ -56,7 +56,7 @@ class DeclarationSet extends DeclarationList {
     }
 
     /**
-     * Get the declarations in this list
+     * Get the declarations in this set
      *
      * @param string[] $filter
      * @return Declaration[]
@@ -68,9 +68,9 @@ class DeclarationSet extends DeclarationList {
 
             $result = array();
 
-            foreach ($this->declarations as $declaration) {
+            foreach ($this->declarations as $property => $declaration) {
 
-                if (in_array($declaration->getProperty(), $filter)) {
+                if (in_array($property, $filter)) {
 
                     array_push($result, $declaration);
                 }
@@ -79,7 +79,7 @@ class DeclarationSet extends DeclarationList {
             return $result;
         }
 
-        return $this->declarations;
+        return array_values($this->declarations);
     }
 
     /**
@@ -90,6 +90,6 @@ class DeclarationSet extends DeclarationList {
 
     public function __toString () {
 
-        return implode('; ', array_map('strval', $this->declarations));
+        return implode('; ', array_map('strval', array_values($this->declarations)));
     }
 }
