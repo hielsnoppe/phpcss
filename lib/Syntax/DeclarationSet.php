@@ -58,7 +58,24 @@ class DeclarationSet extends DeclarationList {
     }
 
     /**
-     * Get the declarations in this set
+     * Get the declaration for the given property name in this set
+     *
+     * @param string[] $property
+     * @return Declaration[]
+     */
+
+    public function getDeclaration ($property) {
+
+        if (array_key_exists($property, $this->declarations)) {
+
+            return $this->declarations[$property];
+        }
+
+        return null;
+    }
+
+    /**
+     * Get the declarations in this set optionally filtered by property names
      *
      * @param string[] $filter
      * @return Declaration[]
@@ -70,15 +87,12 @@ class DeclarationSet extends DeclarationList {
 
             $result = array();
 
-            foreach ($this->declarations as $property => $declaration) {
+            foreach ($filter as $property) {
 
-                if (in_array($property, $filter)) {
-
-                    array_push($result, $declaration);
-                }
+                array_push($result, $this->getDeclaration($property));
             }
 
-            return $result;
+            return array_filter($result);
         }
 
         return array_values($this->declarations);
