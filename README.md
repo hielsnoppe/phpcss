@@ -1,7 +1,7 @@
-# phpcss
+# PHPCSS
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/?branch=master)
-[![Code Coverage](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/badges/coverage.png?b=develop)](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/?branch=develop)
+[![Code Coverage](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/badges/build.png?b=master)](https://scrutinizer-ci.com/g/hielsnoppe/phpcss/build-status/master)
 
 This is a PHP library to easily create valid CSS.
