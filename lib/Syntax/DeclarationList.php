@@ -17,7 +17,7 @@ class DeclarationList {
      * @var Declaration[] $declarations  A list of declarations
      */
 
-    private $declarations;
+    protected $declarations;
 
     /**
      * Construct a DeclarationList from an array of Declarations
