@@ -40,6 +40,8 @@ class DeclarationSet extends DeclarationList {
         $property = $declaration->getProperty();
 
         $this->declarations[$property] = $declaration;
+
+        ksort($this->declarations);
     }
 
     /**
@@ -80,6 +82,26 @@ class DeclarationSet extends DeclarationList {
         }
 
         return array_values($this->declarations);
+    }
+
+    /**
+     * Calculates the set union of $this and an $other DeclarationSet.
+     * For properties present in both DeclarationSets Declarations from $this
+     * DeclarationSet take precedence over those in the $other DeclarationSet.
+     *
+     * @return DeclarationSet  Union of $this and $other
+     */
+
+    public function union (DeclarationSet $other) {
+
+        $result = new DeclarationSet($other->declarations);
+
+        foreach ($this->declarations as $property => $declaration) {
+
+            $result->addDeclaration($declaration);
+        }
+
+        return $result;
     }
 
     /**
