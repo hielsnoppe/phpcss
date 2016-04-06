@@ -89,6 +89,7 @@ class DeclarationSet extends DeclarationList {
      * For properties present in both DeclarationSets Declarations from $this
      * DeclarationSet take precedence over those in the $other DeclarationSet.
      *
+     * @param DeclarationSet $other
      * @return DeclarationSet  Union of $this and $other
      */
 
