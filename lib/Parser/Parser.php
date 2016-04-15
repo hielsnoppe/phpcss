@@ -17,6 +17,7 @@ class Parser {
 
     /**
      * @see https://www.w3.org/TR/css-syntax-3/#parse-a-stylesheet
+     * @todo Implement this
      *
      * @return Syntax\Stylesheet
      */
@@ -26,8 +27,9 @@ class Parser {
 
     /**
      * @see https://www.w3.org/TR/css-syntax-3/#parse-a-list-of-rules
+     * @todo Implement this
      *
-     * @return [Syntax\Rule]
+     * @return Syntax\Rule[]
      */
 
     public static function parseRuleList ($string) {
@@ -94,7 +96,7 @@ class Parser {
     /**
      * @see https://www.w3.org/TR/css-syntax-3/#parse-a-list-of-declarations
      *
-     * @return [Syntax\Declaration]
+     * @return Syntax\DeclarationList
      */
 
     public static function parseDeclarationList ($string) {
@@ -125,7 +127,7 @@ class Parser {
     /**
      * @see https://www.w3.org/TR/css-syntax-3/#parse-a-list-of-component-values
      *
-     * @return [Syntax\ComponentValue]
+     * @return Syntax\ComponentValue[]
      */
 
     public static function parseComponentValueList ($string) {
