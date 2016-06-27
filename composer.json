@@ -29,5 +29,8 @@
     "scripts": {
         "test": "phpunit --bootstrap vendor/autoload.php tests",
         "docs": "vendor/phpdocumentor/phpdocumentor/bin/phpdoc -d lib/ -t docs/"
+    },
+    "require": {
+        "symfony/css-selector": "^3.1"
     }
 }
