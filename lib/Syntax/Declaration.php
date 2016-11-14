@@ -45,7 +45,7 @@ class Declaration implements Item {
 
         $this->property = $property;
         $this->value = $value;
-        $this->important = $important;
+        $this->setImportant($important);
     }
 
     /**
@@ -71,7 +71,7 @@ class Declaration implements Item {
     }
 
     /**
-     * Return state of important flag of this Declaration
+     * Return state of !important flag of this Declaration
      *
      * @return bool
      */
@@ -79,6 +79,17 @@ class Declaration implements Item {
     public function isImportant () {
 
         return $this->important;
+    }
+
+    /**
+     * Set state of !important flag to a given value
+     *
+     * @param bool $important  State of the !important flag (defaults to true)
+     */
+
+    public function setImportant ($important = true) {
+
+        $this->important = boolval($important);
     }
 
     /**
