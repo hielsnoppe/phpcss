@@ -1,6 +1,6 @@
 {
     "name": "hielsnoppe/phpcss",
-    "version": "0.1.10",
+    "version": "0.1.11",
     "type": "library",
     "description": "",
     "keywords": [ "css" ],

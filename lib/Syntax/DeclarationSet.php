@@ -60,7 +60,7 @@ class DeclarationSet extends DeclarationList {
     /**
      * Get the declaration for the given property name in this set
      *
-     * @param string[] $property
+     * @param string $property
      * @return Declaration[]
      */
 

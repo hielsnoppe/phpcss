@@ -23,6 +23,8 @@ class Parser {
      */
 
     public static function parseStylesheet ($string) {
+
+        $string;
     }
 
     /**
@@ -33,6 +35,8 @@ class Parser {
      */
 
     public static function parseRuleList ($string) {
+
+        $string;
     }
 
     /**
@@ -122,6 +126,8 @@ class Parser {
      */
 
     public static function parseComponentValue ($string) {
+
+        $string;
     }
 
     /**
@@ -131,5 +137,7 @@ class Parser {
      */
 
     public static function parseComponentValueList ($string) {
+
+        $string;
     }
 }

@@ -1,7 +1,7 @@
 build:
     environment:
         php:
-            version: 5.5.9 # Common versions: 5.4, 5.5, 5.6, 7.0 or hhvm
+            version: 5.6, 7.0 # Common versions: 5.4, 5.5, 5.6, 7.0 or hhvm
     tests:
         override:
             -
@@ -9,3 +9,31 @@ build:
                 coverage:
                     file: 'coverage.xml'
                     format: 'php-clover'
+coding_style:
+    php:
+        indentation:
+            switch:
+                indent_case: false
+        spaces:
+            before_parentheses:
+                function_declaration: true
+                closure_definition: true
+            around_operators:
+                concatenation: true
+        braces:
+            classes_functions:
+                class: end-of-line
+                function: end-of-line
+                closure: end-of-line
+            if:
+                else_on_new_line: true
+            while:
+                opening: end-of-line
+            do_while:
+                opening: end-of-line
+            switch:
+                opening: end-of-line
+            try:
+                opening: end-of-line
+                catch_on_new_line: true
+                finally_on_new_line: true
