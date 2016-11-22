@@ -26,7 +26,7 @@ To install this library via [Composer](https://getcomposer.org/) add the followi
         }
     ],
     "require": {
-        "hielsnoppe/phpcss": "0.1.10"
+        "hielsnoppe/phpcss": "0.1.11"
     }
 }
 ```
