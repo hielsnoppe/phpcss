@@ -26,7 +26,7 @@ To install this library via [Composer](https://getcomposer.org/) add the followi
         }
     ],
     "require": {
-        "hielsnoppe/phpcss": "0.1.5"
+        "hielsnoppe/phpcss": "0.1.10"
     }
 }
 ```
@@ -41,20 +41,19 @@ Given that you have the Composer autoloader in place, you can use PHPCSS as foll
 <?php
 
 use \NielsHoppe\PHPCSS\Document;
-use \NielsHoppe\PHPCSS\StyleRule;
-use \NielsHoppe\PHPCSS\Values\ColorValue;
+use \NielsHoppe\PHPCSS\Rules\StyleRule;
 
 $style = new Document();
 
 $html = new StyleRule('html');
-$html->createDeclaration('color', new ColorValue('#00f'));
+$html->createDeclaration('color', '#00f');
 
 $body = new StyleRule('body');
-$body->createDeclaration('background-color', new ColorValue('rgba(128, 255 , 0, 0.5)'));
+$body->createDeclaration('background-color', 'rgba(128, 255 , 0, 0.5)');
 $body->createDeclaration('padding-top', '10px');
 
-$style->addStatement($html);
-$style->addStatement($body);
+$style->addRule($html);
+$style->addRule($body);
 
 echo($style);
 ```

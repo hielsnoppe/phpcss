@@ -6,6 +6,7 @@
 
 namespace NielsHoppe\PHPCSS\Syntax\Rules;
 
+use NielsHoppe\PHPCSS\Syntax\Declaration;
 use NielsHoppe\PHPCSS\Syntax\DeclarationList;
 
 /**
