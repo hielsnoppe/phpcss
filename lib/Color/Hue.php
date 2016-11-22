@@ -10,7 +10,7 @@ class Hue {
 
     private $value;
 
-    public function __construct($value) {
+    public function __construct ($value) {
 
         $this->value = $value;
     }
@@ -39,7 +39,7 @@ class Hue {
 
         if ($this->value * 3 < 2) {
 
-            return $m1 + ($m2 - $m1) * (2/3 - $this->value) * 6;
+            return $m1 + ($m2 - $m1) * (2 / 3 - $this->value) * 6;
         }
 
         return $m1;
