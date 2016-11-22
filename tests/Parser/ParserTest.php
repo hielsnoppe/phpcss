@@ -1,6 +1,6 @@
 <?php
 
-namespace NielsHoppe\PHPCSS\Syntax\Statements;
+namespace NielsHoppe\PHPCSS\Parser;
 
 use \NielsHoppe\PHPCSS\Syntax\Declaration;
 use \NielsHoppe\PHPCSS\Parser\Parser;
